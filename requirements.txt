@@ -1,0 +1,8 @@
+flask
+faker
+pandas
+geopandas
+pyodbc
+python-dotenv
+dash
+SQLAlchemy

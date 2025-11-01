@@ -1,0 +1,222 @@
+{% extends 'index.html' %}
+{% block title %}Panel IoT - Ciudad Inteligente{% endblock %}
+
+{% block content %}
+<main class="dashboard-container container py-4">
+
+  <!-- 🏙️ Encabezado -->
+  <section class="dashboard-header text-center mb-4">
+    <h2 class="fw-bold text-primary mb-2">🌆 Smart City Dashboard</h2>
+    <p class="text-secondary">Visualización de consumo energético, conectividad WiFi y estado de sensores urbanos.</p>
+  </section>
+
+  <!-- 🔍 Filtros con Bootstrap -->
+  <section class="card p-4 shadow-sm mb-5 bg-dark text-light border-secondary">
+    <h5 class="mb-3 fw-semibold text-info">
+      <i class="bi bi-funnel"></i> Filtros de ubicación y fecha
+    </h5>
+
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label for="pais" class="form-label fw-semibold">País:</label>
+        <select id="pais" class="form-select">
+          <option value="">Selecciona un país</option>
+          <option value="Colombia">Colombia</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="depto" class="form-label fw-semibold">Departamento:</label>
+        <select id="depto" class="form-select">
+          <option value="">Selecciona un departamento</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="muni" class="form-label fw-semibold">Municipio:</label>
+        <select id="muni" class="form-select">
+          <option value="">Selecciona un municipio</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="barrio" class="form-label fw-semibold">Barrio:</label>
+        <select id="barrio" class="form-select">
+          <option value="">Selecciona un barrio</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-end mt-3">
+      <div class="col-md-4">
+        <label for="fechaInicio" class="form-label fw-semibold">Fecha inicio:</label>
+        <input type="date" id="fechaInicio" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="fechaFin" class="form-label fw-semibold">Fecha fin:</label>
+        <input type="date" id="fechaFin" class="form-control">
+      </div>
+      <div class="col-md-4 text-end">
+        <button id="filtrarBtn" class="btn btn-outline-info mt-3">
+          <i class="bi bi-search"></i> Aplicar filtros
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📊 Gráficas en tarjetas separadas -->
+  <section class="row g-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">⚡ Consumo energético mensual</h5>
+        {{ graphs["consumo"] | safe }}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">📶 Estado de red WiFi</h5>
+        {{ graphs["wifi_estado"] | safe }}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">📈 Velocidad promedio WiFi</h5>
+        {{ graphs["wifi_velocidad"] | safe }}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">💡 Estado de luminarias</h5>
+        {{ graphs["luminarias_estado"] | safe }}
+      </div>
+    </div>
+
+    <div class="card bg-dark text-light mt-4">
+
+      <div class="card-header">
+      🗺️ Mapa de luminarias y fallas
+      </div>
+      <div class="card-body">
+        {{ graphs['mapa_luminarias'] | safe }}
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">🌙 Nivel de luminiscencia</h5>
+        {{ graphs["luminarias_luz"] | safe }}
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">🛠️ Fallas y mantenimiento</h5>
+        {{ graphs["fallas"] | safe }}
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="card shadow-sm bg-dark text-light p-3">
+        <h5 class="text-center mb-2">🌡️ Indicadores ambientales</h5>
+        {{ graphs["ambiente"] | safe }}
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const paisSelect = document.getElementById("pais");
+  const deptoSelect = document.getElementById("depto");
+  const muniSelect = document.getElementById("muni");
+  const barrioSelect = document.getElementById("barrio");
+
+  // 1️⃣ Cargar países al iniciar
+  fetch('/api/paises')
+    .then(res => res.json())
+    .then(data => {
+      paisSelect.innerHTML = '<option value="">Selecciona un país</option>';
+      data.forEach(p => paisSelect.innerHTML += `<option value="${p}">${p}</option>`);
+    })
+    .catch(err => console.error("Error al cargar países:", err));
+
+  // 2️⃣ Al cambiar el país, cargar departamentos
+  paisSelect.addEventListener("change", function() {
+    const pais = paisSelect.value.trim();
+    if (!pais) return;
+    fetch(`/api/departamentos/${encodeURIComponent(pais)}`)
+      .then(res => res.json())
+      .then(data => {
+        deptoSelect.innerHTML = '<option value="">Selecciona un departamento</option>';
+        data.forEach(d => deptoSelect.innerHTML += `<option value="${d}">${d}</option>`);
+        muniSelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+        barrioSelect.innerHTML = '<option value="">Selecciona un barrio</option>';
+      })
+      .catch(err => console.error("Error departamentos:", err));
+  });
+
+  // 3️⃣ Al cambiar el departamento, cargar municipios
+  deptoSelect.addEventListener("change", function() {
+    const depto = deptoSelect.value.trim();
+    if (!depto) return;
+    fetch(`/api/municipios/${encodeURIComponent(depto)}`)
+      .then(res => res.json())
+      .then(data => {
+        muniSelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+        data.forEach(m => muniSelect.innerHTML += `<option value="${m}">${m}</option>`);
+        barrioSelect.innerHTML = '<option value="">Selecciona un barrio</option>';
+      })
+      .catch(err => console.error("Error municipios:", err));
+  });
+
+  // 4️⃣ Al cambiar el municipio, cargar barrios
+  muniSelect.addEventListener("change", function() {
+    const muni = muniSelect.value.trim();
+    if (!muni) return;
+    fetch(`/api/barrios/${encodeURIComponent(muni)}`)
+      .then(res => res.json())
+      .then(data => {
+        barrioSelect.innerHTML = '<option value="">Selecciona un barrio</option>';
+        data.forEach(b => barrioSelect.innerHTML += `<option value="${b}">${b}</option>`);
+      })
+      .catch(err => console.error("Error barrios:", err));
+  });
+
+   // 5️⃣ Aplicar filtros: POST → /api/filtrar
+  document.getElementById('filtrarBtn').addEventListener('click', function() {
+    const filtros = {
+      pais: paisSelect.value,
+      departamento: deptoSelect.value,
+      municipio: muniSelect.value,
+      barrio: barrioSelect.value,
+      fechaInicio: document.getElementById("fechaInicio").value,
+      fechaFin: document.getElementById("fechaFin").value
+    };
+
+    fetch('/api/filtrar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(filtros)
+    })
+    .then(res => res.json())
+    .then(data => {
+      // Actualiza las gráficas en la página sin recargar
+      document.querySelector('[data-graph="consumo"]').innerHTML = data.consumo;
+      document.querySelector('[data-graph="wifi_estado"]').innerHTML = data.wifi_estado;
+      document.querySelector('[data-graph="wifi_velocidad"]').innerHTML = data.wifi_velocidad;
+      document.querySelector('[data-graph="luminarias_estado"]').innerHTML = data.luminarias_estado;
+      document.querySelector('[data-graph="luminarias_luz"]').innerHTML = data.luminarias_luz;
+      document.querySelector('[data-graph="fallas"]').innerHTML = data.fallas;
+      document.querySelector('[data-graph="ambiente"]').innerHTML = data.ambiente;
+    })
+    .catch(err => console.error("Error aplicando filtros:", err));
+  });
+});
+</script>
+
+{% endblock %}
