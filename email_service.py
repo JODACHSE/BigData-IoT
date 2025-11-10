@@ -1,19 +1,11 @@
+# función: send_email
 import os
 import smtplib
 from email.mime.text import MIMEText
+import ssl
 
 
 def send_email(nombre: str, from_email: str, asunto: str, mensaje: str) -> None:
-    """Envía un correo usando SMTP (Gmail) con los datos del formulario.
-
-    Requiere variables de entorno:
-    - EMAIL_HOST (p.ej. smtp.gmail.com)
-    - EMAIL_PORT (p.ej. 587)
-    - EMAIL_USER (tu cuenta de gmail)
-    - EMAIL_PASS (App Password de Gmail)
-    - EMAIL_TO   (destinatario final)
-    """
-
     host = os.getenv("EMAIL_HOST", "smtp.gmail.com")
     port = int(os.getenv("EMAIL_PORT", "587"))
     user = os.getenv("EMAIL_USER")
@@ -23,7 +15,6 @@ def send_email(nombre: str, from_email: str, asunto: str, mensaje: str) -> None:
     if not user or not password:
         raise ValueError("Faltan credenciales de email (EMAIL_USER/EMAIL_PASS).")
 
-    # Construir el contenido del correo
     body = f"""
     Nuevo mensaje de contacto:
 
@@ -39,10 +30,13 @@ def send_email(nombre: str, from_email: str, asunto: str, mensaje: str) -> None:
     msg["Subject"] = f"[Contacto] {asunto.strip()}"
     msg["From"] = user
     msg["To"] = to_email or ""
+    msg["Reply-To"] = from_email or user
 
-    # Enviar por SMTP con STARTTLS
-    with smtplib.SMTP(host, port) as server:
+    context = ssl.create_default_context()
+
+    with smtplib.SMTP(host, port, timeout=15) as server:
         server.ehlo()
-        server.starttls()
+        server.starttls(context=context)
+        server.ehlo()
         server.login(user, password)
         server.send_message(msg)

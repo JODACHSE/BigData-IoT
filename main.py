@@ -1,8 +1,9 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, current_app
 from dotenv import load_dotenv
 from db import execute_select
 from email_service import send_email
+import smtplib
 
 load_dotenv()
 
@@ -61,14 +62,20 @@ def send_contact():
         if not (nombre and email and asunto and mensaje):
             error = "Por favor completa todos los campos."
         else:
+            current_app.logger.info(f"Intentando enviar correo de '{email}' con asunto '{asunto}'")
             send_email(nombre, email, asunto, mensaje)
             success = "Tu mensaje fue enviado correctamente. ¡Gracias por contactarnos!"
     except ValueError as ve:
         error = str(ve)
+    except smtplib.SMTPAuthenticationError:
+        error = "Autenticación SMTP fallida. Verifica EMAIL_USER y EMAIL_PASS (App Password)."
+    except (smtplib.SMTPConnectError, smtplib.SMTPServerDisconnected, smtplib.SMTPDataError) as e:
+        error = f"Fallo de conexión/entrega SMTP: {e}"
     except Exception as e:
+        current_app.logger.exception("Error inesperado al enviar correo")
         error = f"No se pudo enviar el correo: {e}"
 
-    return render_template("pages/contacto.html", success=success, error=error)
+    return render_template("pages/contacto.html", success=success, error=error), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
