@@ -1,117 +1,245 @@
-USE master;
+SET NOCOUNT ON
 GO
 
-IF DB_ID('CiudadInteligenteDW') IS NOT NULL
-BEGIN
-    ALTER DATABASE CiudadInteligenteDW SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-    DROP DATABASE CiudadInteligenteDW;
-END;
+set quoted_identifier on
 GO
 
-CREATE DATABASE CiudadInteligenteDW;
+SET DATEFORMAT mdy
 GO
 
-USE CiudadInteligenteDW;
-GO
+/* 1) Crear/Resetear BD */
+-- IF DB_ID('CiudadInteligenteDW') IS NOT NULL
+-- BEGIN
+--     ALTER DATABASE CiudadInteligenteDW SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+--     DROP DATABASE CiudadInteligenteDW;
+-- END;
+-- GO
 
--- Crear esquemas
-CREATE SCHEMA Dim;
+-- CREATE DATABASE CiudadInteligenteDW;
+-- GO
+-- USE CiudadInteligenteDW;
+-- GO
+
+/* 2) Esquemas */
+CREATE SCHEMA Dim;   -- Dimensiones
 GO
-CREATE SCHEMA Hec;
+CREATE SCHEMA Hechos; -- Tablas de hechos
 GO
 
 /* ===========================
-DIMENSIONES
+   DIMENSIONES
 =========================== */
 
--- Dimensión Tiempo
-CREATE TABLE Dim.Tiempo (
-    IdTiempo INT IDENTITY PRIMARY KEY,
-    FechaCompleta DATE NOT NULL,
-    Anio INT NOT NULL,
-    Mes INT NOT NULL,
-    NombreMes NVARCHAR(20),
-    Dia INT NOT NULL,
-    NombreDia NVARCHAR(20),
-    Hora INT NULL,
-    Minuto INT NULL,
-    Segundo INT NULL
+-- Dimensión de fechas (calendario) - clave sustituta YYYYMMDD
+CREATE TABLE Dim.Fecha
+(
+    IdFecha INT NOT NULL PRIMARY KEY,
+    -- yyyymmdd
+    Fecha DATE NOT NULL,
+    Anio SMALLINT NOT NULL,
+    Mes TINYINT NOT NULL,
+    Dia TINYINT NOT NULL,
+    Trimestre TINYINT NOT NULL,
+    NombreMes NVARCHAR(20) NOT NULL,
+    DiaSemana TINYINT NOT NULL,
+    -- 1=Lunes .. 7=Domingo
+    NombreDiaSemana NVARCHAR(20) NOT NULL,
+    SemanaAnio TINYINT NOT NULL
 );
-CREATE UNIQUE INDEX IX_Tiempo_FechaHora ON Dim.Tiempo(FechaCompleta, Hora, Minuto, Segundo);
+GO
 
--- Dimensión Usuario
-CREATE TABLE Dim.Usuario (
-    IdUsuarioDW INT IDENTITY PRIMARY KEY,
-    IdUsuarioMER INT NOT NULL,
-    NombreCompleto NVARCHAR(200),
-    TipoUsuario NVARCHAR(50)
+-- Dimensión ubicación (lat/long) basada en IoT.Ubicacion
+CREATE TABLE Dim.Ubicacion
+(
+    IdUbicacion INT IDENTITY PRIMARY KEY,
+    IdUbicacionSource INT UNIQUE,
+    -- rastreo origen
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
 );
-CREATE INDEX IX_Usuario_Tipo ON Dim.Usuario(TipoUsuario);
+GO
 
--- Dimensión Ubicación (independiente de Dirección)
-CREATE TABLE Dim.Ubicacion (
-    IdUbicacionDW INT IDENTITY PRIMARY KEY,
-    IdUbicacionMER INT NOT NULL,
-    Latitud DECIMAL(9,6),
-    Longitud DECIMAL(9,6)
+-- Dimensión compañía (Core.Compania + Catalogo.TipoCompania)
+CREATE TABLE Dim.Compania
+(
+    IdCompania INT IDENTITY PRIMARY KEY,
+    IdCompaniaSource INT UNIQUE,
+    Nombre NVARCHAR(100) NOT NULL,
+    TipoCompania NVARCHAR(50) NULL
 );
-CREATE INDEX IX_Ubicacion_LatLong ON Dim.Ubicacion(Latitud, Longitud);
+GO
 
--- Dimensión Dispositivo (WiFi o Luminaria)
-CREATE TABLE Dim.Dispositivo (
-    IdDispositivoDW INT IDENTITY PRIMARY KEY,
-    IdDispositivoMER INT NOT NULL,
-    TipoDispositivo NVARCHAR(50), -- 'WiFi' o 'Luminaria'
-    Estado NVARCHAR(50)
+-- Dimensión usuario (Core.Usuario + tipos)
+CREATE TABLE Dim.Usuario
+(
+    IdUsuario INT IDENTITY PRIMARY KEY,
+    IdUsuarioSource INT UNIQUE,
+    NombreCompleto NVARCHAR(200) NOT NULL,
+    TipoUsuario NVARCHAR(50) NULL,
+    TipoDocumento NVARCHAR(50) NULL,
+    Documento NVARCHAR(20) NULL
 );
-CREATE INDEX IX_Dispositivo_Tipo ON Dim.Dispositivo(TipoDispositivo);
+GO
 
--- Dimensión TipoMantenimiento
-CREATE TABLE Dim.TipoMantenimiento (
-    IdTipoMantenimiento INT IDENTITY PRIMARY KEY,
-    Nombre NVARCHAR(100) NOT NULL
+-- Dimensión estado infraestructura (Catalogo.EstadoInfraestructura)
+CREATE TABLE Dim.EstadoInfraestructura
+(
+    IdEstadoInfraestructura INT IDENTITY PRIMARY KEY,
+    IdEstadoSource INT UNIQUE,
+    Nombre NVARCHAR(50) NOT NULL,
+    Descripcion NVARCHAR(200) NULL
 );
-CREATE UNIQUE INDEX IX_TipoMantenimiento_Nombre ON Dim.TipoMantenimiento(Nombre);
+GO
+
+-- Dimensión tipo de conexión (Catalogo.TipoConexion)
+CREATE TABLE Dim.TipoConexion
+(
+    IdTipoConexion INT IDENTITY PRIMARY KEY,
+    IdTipoConexionSource INT UNIQUE,
+    Nombre NVARCHAR(50) NOT NULL
+);
+GO
+
+-- Dimensión WiFi (IoT.WiFi) denormalizada con atributos relevantes
+CREATE TABLE Dim.WiFi
+(
+    IdWiFi INT IDENTITY PRIMARY KEY,
+    IdWiFiSource INT UNIQUE,
+    Nombre NVARCHAR(100) NULL,
+    RangoCobertura DECIMAL(10,2) NULL,
+    -- Atributos denormalizados
+    CompaniaNombre NVARCHAR(100) NULL,
+    EstadoNombre NVARCHAR(50) NULL,
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
+);
+GO
+
+-- Dimensión Alumbrado público (IoT.AlumbradoPublico) denormalizada
+CREATE TABLE Dim.Alumbrado
+(
+    IdAlumbrado INT IDENTITY PRIMARY KEY,
+    IdAlumbradoSource INT UNIQUE,
+    Codigo NVARCHAR(50) NOT NULL,
+    -- Atributos denormalizados
+    CompaniaNombre NVARCHAR(100) NULL,
+    EstadoNombre NVARCHAR(50) NULL,
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
+);
+GO
 
 /* ===========================
-TABLAS DE HECHOS
+   HECHOS
 =========================== */
 
--- FactWiFi: mediciones de velocidad
-CREATE TABLE Hec.FactWiFi (
-    IdMedicion BIGINT IDENTITY PRIMARY KEY,
-    IdTiempo INT NOT NULL FOREIGN KEY REFERENCES Dim.Tiempo(IdTiempo),
-    IdUsuarioDW INT NULL FOREIGN KEY REFERENCES Dim.Usuario(IdUsuarioDW),
-    IdUbicacionDW INT NOT NULL FOREIGN KEY REFERENCES Dim.Ubicacion(IdUbicacionDW),
-    IdDispositivoDW INT NOT NULL FOREIGN KEY REFERENCES Dim.Dispositivo(IdDispositivoDW),
-    VelocidadSubida DECIMAL(10,2) NOT NULL,
-    VelocidadBajada DECIMAL(10,2) NOT NULL,
-    IdTipoConexion INT NULL -- opcional, si se requiere como atributo adicional
-);
-CREATE INDEX IX_FactWiFi_Tiempo ON Hec.FactWiFi(IdTiempo);
-CREATE INDEX IX_FactWiFi_Ubicacion ON Hec.FactWiFi(IdUbicacionDW);
+-- Hecho: mediciones de sensores WiFi (IoT.SensorWiFi)
+CREATE TABLE Hechos.SensorWiFi
+(
+    IdSensorWiFi BIGINT IDENTITY PRIMARY KEY,
+    IdSensorWiFiSource BIGINT UNIQUE,
+    -- rastreo origen
 
--- FactLuminaria: mediciones de alumbrado
-CREATE TABLE Hec.FactLuminaria (
-    IdMedicion BIGINT IDENTITY PRIMARY KEY,
-    IdTiempo INT NOT NULL FOREIGN KEY REFERENCES Dim.Tiempo(IdTiempo),
-    IdUbicacionDW INT NOT NULL FOREIGN KEY REFERENCES Dim.Ubicacion(IdUbicacionDW),
-    IdDispositivoDW INT NOT NULL FOREIGN KEY REFERENCES Dim.Dispositivo(IdDispositivoDW),
-    Consumo DECIMAL(10,2) NOT NULL,
+    -- Dimensiones
+    IdFechaMedicion INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdFechaConexion INT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdWiFi INT NOT NULL FOREIGN KEY REFERENCES Dim.WiFi(IdWiFi),
+    IdUsuario INT NULL FOREIGN KEY REFERENCES Dim.Usuario(IdUsuario),
+    IdTipoConexion INT NULL FOREIGN KEY REFERENCES Dim.TipoConexion(IdTipoConexion),
+
+    -- Medidas
+    VelocidadSubida DECIMAL(10,2) NULL,
+    VelocidadBajada DECIMAL(10,2) NULL,
+
+    -- Degenerada
+    DireccionIP VARCHAR(45) NULL
+);
+GO
+
+CREATE INDEX IX_SensorWiFi_FechaMedicion ON Hechos.SensorWiFi(IdFechaMedicion);
+CREATE INDEX IX_SensorWiFi_WiFi ON Hechos.SensorWiFi(IdWiFi);
+CREATE INDEX IX_SensorWiFi_Usuario ON Hechos.SensorWiFi(IdUsuario);
+GO
+
+-- Hecho: mediciones de luminaria (IoT.SensorLuminaria)
+CREATE TABLE Hechos.SensorLuminaria
+(
+    IdSensorLuminaria BIGINT IDENTITY PRIMARY KEY,
+    IdSensorLuminariaSource BIGINT UNIQUE,
+
+    -- Dimensiones
+    IdFechaMedicion INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdAlumbrado INT NOT NULL FOREIGN KEY REFERENCES Dim.Alumbrado(IdAlumbrado),
+
+    -- Medidas
+    Consumo DECIMAL(10,2) NULL,
     Temperatura DECIMAL(5,2) NULL,
     Luminiscencia DECIMAL(5,2) NULL
 );
-CREATE INDEX IX_FactLuminaria_Tiempo ON Hec.FactLuminaria(IdTiempo);
-CREATE INDEX IX_FactLuminaria_Ubicacion ON Hec.FactLuminaria(IdUbicacionDW);
+GO
 
--- FactMantenimiento: eventos de mantenimiento
-CREATE TABLE Hec.FactMantenimiento (
-    IdEvento BIGINT IDENTITY PRIMARY KEY,
-    IdTiempo INT NOT NULL FOREIGN KEY REFERENCES Dim.Tiempo(IdTiempo),
-    IdDispositivoDW INT NOT NULL FOREIGN KEY REFERENCES Dim.Dispositivo(IdDispositivoDW),
-    IdTipoMantenimiento INT NOT NULL FOREIGN KEY REFERENCES Dim.TipoMantenimiento(IdTipoMantenimiento),
-    IdCompania INT NULL, -- opcional si se requiere
+CREATE INDEX IX_SensorLuminaria_FechaMedicion ON Hechos.SensorLuminaria(IdFechaMedicion);
+CREATE INDEX IX_SensorLuminaria_Alumbrado ON Hechos.SensorLuminaria(IdAlumbrado);
+GO
+
+-- Hecho: mantenimientos (Ops.Mantenimiento) con agregados simples
+CREATE TABLE Hechos.Mantenimiento
+(
+    IdMantenimiento INT IDENTITY PRIMARY KEY,
+    IdMantenimientoSource INT UNIQUE,
+
+    -- Dimensiones
+    IdFecha INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdCompania INT NULL FOREIGN KEY REFERENCES Dim.Compania(IdCompania),
+    IdWiFi INT NULL FOREIGN KEY REFERENCES Dim.WiFi(IdWiFi),
+    IdAlumbrado INT NULL FOREIGN KEY REFERENCES Dim.Alumbrado(IdAlumbrado),
+
+    -- Medidas
+    EmpleadosAsignados INT NULL,
+    -- derivado de Ops.MantenimientoEmpleado
+    CantidadMantenimientos INT NOT NULL DEFAULT 1,
+
+    -- Degenerada
     Descripcion NVARCHAR(200) NULL
 );
-CREATE INDEX IX_FactMantenimiento_Tiempo ON Hec.FactMantenimiento(IdTiempo);
-CREATE INDEX IX_FactMantenimiento_Dispositivo ON Hec.FactMantenimiento(IdDispositivoDW);
+GO
+
+CREATE INDEX IX_Mantenimiento_Fecha ON Hechos.Mantenimiento(IdFecha);
+CREATE INDEX IX_Mantenimiento_Compania ON Hechos.Mantenimiento(IdCompania);
+GO
+
+/* ===========================
+   Carga inicial de Dim.Fecha
+   (rango 2015-01-01 a 2030-12-31)
+=========================== */
+SET NOCOUNT ON;
+DECLARE @start DATE = '2015-01-01';
+DECLARE @end   DATE = '2030-12-31';
+;WITH
+    d
+    AS
+    (
+                    SELECT @start AS dt
+        UNION ALL
+            SELECT DATEADD(DAY, 1, dt)
+            FROM d
+            WHERE dt < @end
+    )
+INSERT INTO Dim.Fecha
+    (IdFecha, Fecha, Anio, Mes, Dia, Trimestre, NombreMes, DiaSemana, NombreDiaSemana, SemanaAnio)
+SELECT
+    CONVERT(INT, FORMAT(dt, 'yyyyMMdd')) AS IdFecha,
+    dt AS Fecha,
+    YEAR(dt) AS Anio,
+    MONTH(dt) AS Mes,
+    DAY(dt) AS Dia,
+    DATEPART(QUARTER, dt) AS Trimestre,
+    DATENAME(MONTH, dt) AS NombreMes,
+    ((DATEPART(WEEKDAY, dt) + 5) % 7) + 1 AS DiaSemana, -- 1=Lunes
+    DATENAME(WEEKDAY, dt) AS NombreDiaSemana,
+    DATEPART(WEEK, dt) AS SemanaAnio
+FROM d
+OPTION
+(MAXRECURSION
+0);
+GO

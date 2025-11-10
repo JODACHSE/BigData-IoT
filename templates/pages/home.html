@@ -3,31 +3,30 @@
 {% block title %}Inicio{% endblock %}
 
 {% block content %}
-
-<section class="hero-section text-center py-5 mb-5 animate-on-scroll">
+<!-- Hero Section -->
+<section class="hero-section text-center py-5 mb-5">
     <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
-            <h1 class="display-3 mb-4">
-                <span>CIUDADES <b>INTELIGENTES</b></span>
+            <h1 class="display-4 fw-bold mb-4 text-primary">
+                CIUDADES <span class="text-warning">INTELIGENTES</span>
             </h1>
-            <p class="lead mb-4" style="color: var(--color-text-secondary);">
+            <p class="lead mb-4 text-muted">
                 Análisis de datos para la sostenibilidad urbana:
-                <strong>Alumbrado Público y Zonas Wi-Fi</strong>
+                <strong class="text-white">Alumbrado Público y Zonas Wi-Fi</strong>
             </p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a href="#" class="btn btn-futuristic">
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{{url_for('planteamiento')}}" class="btn btn-primary btn-lg">
                     <i class="bi bi-lightbulb-fill me-2"></i>
                     Explorar Datos
                 </a>
-                <a href="#proyecto" class="btn btn-futuristic"
-                    style="background: linear-gradient(135deg, var(--color-accent-warm), var(--color-accent-secondary));">
+                <a href="#proyecto" class="btn btn-outline-warning btn-lg">
                     <i class="bi bi-info-circle me-2"></i>
                     Conocer Más
                 </a>
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="futuristic-card pulse-effect">
+            <div class="card shadow-lg border-0">
                 <img src="{{ url_for('static', filename='img/Ciudades inteligentes.png') }}" alt="Ciudades Inteligentes"
                     class="img-fluid rounded" style="max-height: 400px; object-fit: cover;">
             </div>
@@ -36,242 +35,271 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats-section mb-5 animate-on-scroll">
+<section class="stats-section mb-5">
     <div class="row g-4">
         <div class="col-md-4">
-            <div class="futuristic-card text-center">
-                <i class="bi bi-lightbulb icon-futuristic mb-3"></i>
-                <h3 style="color: var(--color-accent-primary);">Alumbrado Público</h3>
-                <p style="color: var(--color-text-secondary);">
-                    Optimización del consumo energético mediante análisis de datos en tiempo real
-                </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-lightbulb display-4 text-warning mb-3"></i>
+                    <h4 class="card-title text-primary">Alumbrado Público</h4>
+                    <p class="card-text text-muted">
+                        Optimización del consumo energético mediante análisis de datos en tiempo real
+                    </p>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="futuristic-card text-center">
-                <i class="bi bi-wifi icon-futuristic mb-3"></i>
-                <h3 style="color: var(--color-accent-secondary);">Zonas Wi-Fi</h3>
-                <p style="color: var(--color-text-secondary);">
-                    Mapeo y análisis de cobertura de internet público en zonas urbanas
-                </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-wifi display-4 text-info mb-3"></i>
+                    <h4 class="card-title text-primary">Zonas Wi-Fi</h4>
+                    <p class="card-text text-muted">
+                        Mapeo y análisis de cobertura de internet público en zonas urbanas
+                    </p>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="futuristic-card text-center">
-                <i class="bi bi-graph-up-arrow icon-futuristic mb-3"></i>
-                <h3 style="color: var(--color-accent-warm);">Big Data</h3>
-                <p style="color: var(--color-text-secondary);">
-                    Procesamiento de grandes volúmenes de datos para ciudades sostenibles
-                </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="bi bi-graph-up-arrow display-4 text-success mb-3"></i>
+                    <h4 class="card-title text-primary">Big Data</h4>
+                    <p class="card-text text-muted">
+                        Procesamiento de grandes volúmenes de datos para ciudades sostenibles
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Proyecto Section -->
-<section id="proyecto" class="project-section mb-5 animate-on-scroll">
-    <h2 class="section-title">
-        <span style="font-family: var(--font-brand);">SOBRE EL PROYECTO</span>
+<section id="proyecto" class="project-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        SOBRE EL PROYECTO
     </h2>
 
     <div class="row g-4">
         <div class="col-lg-6">
-            <div class="futuristic-card">
-                <h3 class="mb-3">
-                    <i class="bi bi-bullseye me-2" style="color: var(--color-accent-primary);"></i>
-                    Objetivos
-                </h3>
-                <ul class="list-unstyled" style="color: var(--color-text-secondary);">
-                    <li class="mb-2">
-                        <i class="bi bi-check-circle-fill me-2" style="color: var(--color-accent-primary);"></i>
-                        Analizar datos abiertos de infraestructura urbana
-                    </li>
-                    <li class="mb-2">
-                        <i class="bi bi-check-circle-fill me-2" style="color: var(--color-accent-primary);"></i>
-                        Desarrollar visualizaciones interactivas con Power BI
-                    </li>
-                    <li class="mb-2">
-                        <i class="bi bi-check-circle-fill me-2" style="color: var(--color-accent-primary);"></i>
-                        Implementar soluciones basadas en Big Data
-                    </li>
-                    <li class="mb-2">
-                        <i class="bi bi-check-circle-fill me-2" style="color: var(--color-accent-primary);"></i>
-                        Contribuir a los Objetivos de Desarrollo Sostenible (ODS)
-                    </li>
-                </ul>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">
+                        <i class="bi bi-bullseye me-2 text-primary"></i>
+                        Objetivos
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                            Analizar datos abiertos de infraestructura urbana
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                            Desarrollar visualizaciones interactivas con Power BI
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                            Implementar soluciones basadas en Big Data
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill me-2 text-success"></i>
+                            Contribuir a los Objetivos de Desarrollo Sostenible (ODS)
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <div class="futuristic-card">
-                <h3 class="mb-3">
-                    <i class="bi bi-globe2 me-2" style="color: var(--color-accent-secondary);"></i>
-                    Objetivos de Desarrollo Sostenible
-                </h3>
-                <div class="d-flex flex-wrap gap-3 mb-3">
-                    <div class="badge text-wrap"
-                        style="background: var(--color-accent-primary); font-size: 0.9rem; padding: 0.5rem 1rem;">
-                        <i class="bi bi-building me-1"></i>
-                        ODS 11: Ciudades Sostenibles
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">
+                        <i class="bi bi-globe2 me-2 text-info"></i>
+                        Objetivos de Desarrollo Sostenible
+                    </h3>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-primary fs-6 p-2">
+                            <i class="bi bi-building me-1"></i>
+                            ODS 11: Ciudades Sostenibles
+                        </span>
+                        <span class="badge bg-info fs-6 p-2">
+                            <i class="bi bi-lightning-charge me-1"></i>
+                            ODS 7: Energía Asequible
+                        </span>
+                        <span class="badge bg-warning text-dark fs-6 p-2">
+                            <i class="bi bi-thermometer-sun me-1"></i>
+                            ODS 13: Acción Climática
+                        </span>
                     </div>
-                    <div class="badge text-wrap"
-                        style="background: var(--color-accent-secondary); font-size: 0.9rem; padding: 0.5rem 1rem;">
-                        <i class="bi bi-lightning-charge me-1"></i>
-                        ODS 7: Energía Asequible
-                    </div>
-                    <div class="badge text-wrap"
-                        style="background: var(--color-accent-warm); font-size: 0.9rem; padding: 0.5rem 1rem;">
-                        <i class="bi bi-thermometer-sun me-1"></i>
-                        ODS 13: Acción Climática
-                    </div>
+                    <p class="card-text text-muted">
+                        Este proyecto se alinea con las metas globales de la ONU para transformar
+                        las ciudades en espacios más eficientes, conectados y sostenibles.
+                    </p>
                 </div>
-                <p style="color: var(--color-text-secondary);">
-                    Este proyecto se alinea con las metas globales de la ONU para transformar
-                    las ciudades en espacios más eficientes, conectados y sostenibles.
-                </p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Tecnologías Section -->
-<section class="tech-section mb-5 animate-on-scroll">
-    <h2 class="section-title">
-        <span style="font-family: var(--font-brand);">TECNOLOGÍAS UTILIZADAS</span>
+<section class="tech-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        TECNOLOGÍAS UTILIZADAS
     </h2>
 
     <div class="row g-4">
         <div class="col-6 col-md-3">
-            <div class="futuristic-card text-center h-100">
-                <i class="fab fa-python icon-futuristic mb-2"></i>
-                <h5 style="color: var(--color-text-primary);">Python</h5>
-                <small style="color: var(--color-text-muted);">Backend & ETL</small>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fab fa-python display-6 text-primary mb-3"></i>
+                    <h5 class="card-title">Python</h5>
+                    <small class="text-muted">Backend & ETL</small>
+                </div>
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="futuristic-card text-center h-100">
-                <i class="fas fa-database icon-futuristic mb-2"></i>
-                <h5 style="color: var(--color-text-primary);">SQL Server</h5>
-                <small style="color: var(--color-text-muted);">Base de Datos</small>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-database display-6 text-info mb-3"></i>
+                    <h5 class="card-title">SQL Server</h5>
+                    <small class="text-muted">Base de Datos</small>
+                </div>
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="futuristic-card text-center h-100">
-                <i class="fab fa-bootstrap icon-futuristic mb-2"></i>
-                <h5 style="color: var(--color-text-primary);">Bootstrap</h5>
-                <small style="color: var(--color-text-muted);">Frontend</small>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fab fa-bootstrap display-6 text-purple mb-3"></i>
+                    <h5 class="card-title">Bootstrap</h5>
+                    <small class="text-muted">Frontend</small>
+                </div>
             </div>
         </div>
         <div class="col-6 col-md-3">
-            <div class="futuristic-card text-center h-100">
-                <i class="fas fa-chart-bar icon-futuristic mb-2"></i>
-                <h5 style="color: var(--color-text-primary);">Power BI</h5>
-                <small style="color: var(--color-text-muted);">Visualización</small>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-bar display-6 text-success mb-3"></i>
+                    <h5 class="card-title">Power BI</h5>
+                    <small class="text-muted">Visualización</small>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Proceso Section -->
-<section class="process-section mb-5 animate-on-scroll">
-    <h2 class="section-title">
-        <span style="font-family: var(--font-brand);">NUESTRO PROCESO</span>
+<section class="process-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        NUESTRO PROCESO
     </h2>
 
     <div class="row g-4">
         <div class="col-md-6 col-lg-3">
-            <div class="futuristic-card text-center h-100">
-                <div class="mb-3" style="font-size: 2.5rem; color: var(--color-accent-primary);">01</div>
-                <h5 class="mb-3">Recolección de Datos</h5>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                    Obtención de datos abiertos de fuentes gubernamentales y públicas
-                </p>
-                <i class="bi bi-download icon-futuristic mt-2"></i>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <div class="display-6 fw-bold text-primary mb-3">01</div>
+                    <h5 class="card-title mb-3">Recolección de Datos</h5>
+                    <p class="card-text text-muted">
+                        Obtención de datos abiertos de fuentes gubernamentales y públicas
+                    </p>
+                    <i class="bi bi-download display-6 text-muted mt-3"></i>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 col-lg-3">
-            <div class="futuristic-card text-center h-100">
-                <div class="mb-3" style="font-size: 2.5rem; color: var(--color-accent-primary);">02</div>
-                <h5 class="mb-3">Procesamiento ETL</h5>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                    Limpieza, transformación y carga de datos con SSIS y Python
-                </p>
-                <i class="bi bi-gear-fill icon-futuristic mt-2"></i>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <div class="display-6 fw-bold text-primary mb-3">02</div>
+                    <h5 class="card-title mb-3">Procesamiento ETL</h5>
+                    <p class="card-text text-muted">
+                        Limpieza, transformación y carga de datos con SSIS y Python
+                    </p>
+                    <i class="bi bi-gear-fill display-6 text-muted mt-3"></i>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 col-lg-3">
-            <div class="futuristic-card text-center h-100">
-                <div class="mb-3" style="font-size: 2.5rem; color: var(--color-accent-primary);">03</div>
-                <h5 class="mb-3">Análisis de Datos</h5>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                    Aplicación de técnicas de Big Data y análisis exploratorio
-                </p>
-                <i class="bi bi-bar-chart-fill icon-futuristic mt-2"></i>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <div class="display-6 fw-bold text-primary mb-3">03</div>
+                    <h5 class="card-title mb-3">Análisis de Datos</h5>
+                    <p class="card-text text-muted">
+                        Aplicación de técnicas de Big Data y análisis exploratorio
+                    </p>
+                    <i class="bi bi-bar-chart-fill display-6 text-muted mt-3"></i>
+                </div>
             </div>
         </div>
 
         <div class="col-md-6 col-lg-3">
-            <div class="futuristic-card text-center h-100">
-                <div class="mb-3" style="font-size: 2.5rem; color: var(--color-accent-primary);">04</div>
-                <h5 class="mb-3">Visualización</h5>
-                <p style="color: var(--color-text-secondary); font-size: 0.9rem;">
-                    Creación de dashboards interactivos y presentación de resultados
-                </p>
-                <i class="bi bi-graph-up icon-futuristic mt-2"></i>
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <div class="display-6 fw-bold text-primary mb-3">04</div>
+                    <h5 class="card-title mb-3">Visualización</h5>
+                    <p class="card-text text-muted">
+                        Creación de dashboards interactivos y presentación de resultados
+                    </p>
+                    <i class="bi bi-graph-up display-6 text-muted mt-3"></i>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="features-section mb-5 animate-on-scroll">
-    <h2 class="section-title">
-        <span style="font-family: var(--font-brand);">CARACTERÍSTICAS DEL PROYECTO</span>
+<section class="features-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        CARACTERÍSTICAS DEL PROYECTO
     </h2>
 
     <div class="row g-4 mb-4">
         <div class="col-lg-4">
-            <div class="futuristic-card h-100">
-                <div class="d-flex align-items-start mb-3">
-                    <i class="bi bi-speedometer2 icon-futuristic me-3" style="font-size: 2.5rem;"></i>
-                    <div>
-                        <h4 style="color: var(--color-accent-primary);">Análisis en Tiempo Real</h4>
-                        <p style="color: var(--color-text-secondary); margin-bottom: 0;">
-                            Procesamiento de datos urbanos con actualización continua para
-                            tomar decisiones informadas y oportunas.
-                        </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-speedometer2 display-4 text-primary me-3"></i>
+                        <div>
+                            <h4 class="text-primary">Análisis en Tiempo Real</h4>
+                            <p class="text-muted mb-0">
+                                Procesamiento de datos urbanos con actualización continua para
+                                tomar decisiones informadas y oportunas.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-4">
-            <div class="futuristic-card h-100">
-                <div class="d-flex align-items-start mb-3">
-                    <i class="bi bi-shield-check icon-futuristic me-3" style="font-size: 2.5rem;"></i>
-                    <div>
-                        <h4 style="color: var(--color-accent-secondary);">Datos Confiables</h4>
-                        <p style="color: var(--color-text-secondary); margin-bottom: 0;">
-                            Fuentes oficiales y validadas: Datos.gov.co, ONU, Banco Mundial
-                            y OpenStreetMap.
-                        </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-shield-check display-4 text-success me-3"></i>
+                        <div>
+                            <h4 class="text-success">Datos Confiables</h4>
+                            <p class="text-muted mb-0">
+                                Fuentes oficiales y validadas: Datos.gov.co, ONU, Banco Mundial
+                                y OpenStreetMap.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-4">
-            <div class="futuristic-card h-100">
-                <div class="d-flex align-items-start mb-3">
-                    <i class="bi bi-eye icon-futuristic me-3" style="font-size: 2.5rem;"></i>
-                    <div>
-                        <h4 style="color: var(--color-accent-warm);">Visualización Interactiva</h4>
-                        <p style="color: var(--color-text-secondary); margin-bottom: 0;">
-                            Dashboards dinámicos y mapas temáticos para facilitar la
-                            interpretación de resultados.
-                        </p>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="bi bi-eye display-4 text-info me-3"></i>
+                        <div>
+                            <h4 class="text-info">Visualización Interactiva</h4>
+                            <p class="text-muted mb-0">
+                                Dashboards dinámicos y mapas temáticos para facilitar la
+                                interpretación de resultados.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -280,55 +308,41 @@
 
     <div class="row g-4">
         <div class="col-lg-6">
-            <div class="futuristic-card h-100">
-                <h4 class="mb-3">
-                    <i class="bi bi-diagram-3 me-2" style="color: var(--color-accent-primary);"></i>
-                    Data Warehouse
-                </h4>
-                <p style="color: var(--color-text-secondary);">
-                    Implementación de arquitectura OLTP y Data Warehouse para almacenamiento
-                    eficiente y análisis dimensional de datos urbanos.
-                </p>
-                <div class="mt-3">
-                    <span class="badge me-2"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-primary);">
-                        OLTP
-                    </span>
-                    <span class="badge me-2"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-primary);">
-                        Star Schema
-                    </span>
-                    <span class="badge"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-primary);">
-                        ETL Pipeline
-                    </span>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h4 class="mb-3">
+                        <i class="bi bi-diagram-3 me-2 text-primary"></i>
+                        Data Warehouse
+                    </h4>
+                    <p class="text-muted">
+                        Implementación de arquitectura OLTP y Data Warehouse para almacenamiento
+                        eficiente y análisis dimensional de datos urbanos.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">OLTP</span>
+                        <span class="badge bg-primary me-2">Star Schema</span>
+                        <span class="badge bg-primary">ETL Pipeline</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <div class="futuristic-card h-100">
-                <h4 class="mb-3">
-                    <i class="bi bi-cpu me-2" style="color: var(--color-accent-secondary);"></i>
-                    Técnicas de Big Data
-                </h4>
-                <p style="color: var(--color-text-secondary);">
-                    Aplicación de clustering, segmentación y análisis predictivo para
-                    identificar patrones y optimizar recursos urbanos.
-                </p>
-                <div class="mt-3">
-                    <span class="badge me-2"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-secondary);">
-                        Clustering
-                    </span>
-                    <span class="badge me-2"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-secondary);">
-                        Predictive Analysis
-                    </span>
-                    <span class="badge"
-                        style="background: var(--color-bg-secondary); color: var(--color-accent-secondary);">
-                        Optimization
-                    </span>
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h4 class="mb-3">
+                        <i class="bi bi-cpu me-2 text-info"></i>
+                        Técnicas de Big Data
+                    </h4>
+                    <p class="text-muted">
+                        Aplicación de clustering, segmentación y análisis predictivo para
+                        identificar patrones y optimizar recursos urbanos.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-info me-2">Clustering</span>
+                        <span class="badge bg-info me-2">Predictive Analysis</span>
+                        <span class="badge bg-info">Optimization</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -336,35 +350,37 @@
 </section>
 
 <!-- Team Section -->
-<section class="team-section mb-5 animate-on-scroll">
-    <h2 class="section-title">
-        <span style="font-family: var(--font-brand);">EQUIPO WOLOLO</span>
+<section class="team-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        EQUIPO WOLOLO
     </h2>
 
-    <div class="futuristic-card">
-        <div class="row align-items-center">
-            <div class="col-md-3 text-center mb-4 mb-md-0">
-                <img src="{{ url_for('static', filename='WololoIcon.png') }}" alt="Wololo Icon"
-                    class="img-fluid pulse-effect" style="max-width: 150px; filter: drop-shadow(var(--glow-primary));">
-            </div>
-            <div class="col-md-9">
-                <h3 style="font-family: var(--font-brand); color: var(--color-accent-primary);">
-                    WOLOLO
-                </h3>
-                <p style="color: var(--color-text-secondary); font-size: 1.1rem;">
-                    Equipo de estudiantes de Ingeniería de Sistemas y Computación de la
-                    Universidad de Cundinamarca, comprometidos con el desarrollo de soluciones
-                    tecnológicas innovadoras para ciudades inteligentes.
-                </p>
-                <div class="mt-3">
-                    <span class="badge me-2" style="background: var(--color-accent-primary); padding: 0.5rem 1rem;">
-                        <i class="bi bi-mortarboard-fill me-1"></i>
-                        Big Data 701N
-                    </span>
-                    <span class="badge" style="background: var(--color-accent-secondary); padding: 0.5rem 1rem;">
-                        <i class="bi bi-geo-alt-fill me-1"></i>
-                        U. Cundinamarca - Chía
-                    </span>
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <img src="{{ url_for('static', filename='WololoIcon.png') }}" alt="Wololo Icon"
+                        class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+                </div>
+                <div class="col-md-9">
+                    <h3 class="text-primary mb-3">
+                        WOLOLO
+                    </h3>
+                    <p class="text-muted fs-5">
+                        Equipo de estudiantes de Ingeniería de Sistemas y Computación de la
+                        Universidad de Cundinamarca, comprometidos con el desarrollo de soluciones
+                        tecnológicas innovadoras para ciudades inteligentes.
+                    </p>
+                    <div class="mt-4">
+                        <span class="badge bg-primary fs-6 p-2 me-2">
+                            <i class="bi bi-mortarboard-fill me-1"></i>
+                            Big Data 701N
+                        </span>
+                        <span class="badge bg-secondary fs-6 p-2">
+                            <i class="bi bi-geo-alt-fill me-1"></i>
+                            U. Cundinamarca - Chía
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -372,29 +388,29 @@
 </section>
 
 <!-- CTA Section -->
-<section class="cta-section text-center py-5 animate-on-scroll">
-    <div class="futuristic-card">
-        <h2 class="mb-4" style="font-family: var(--font-brand);">
-            ¿Listo para explorar los datos?
-        </h2>
-        <p class="lead mb-4" style="color: var(--color-text-secondary);">
-            Descubre insights valiosos sobre el alumbrado público y zonas Wi-Fi en ciudades inteligentes
-        </p>
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a href="#" class="btn btn-futuristic">
-                <i class="bi bi-bar-chart-fill me-2"></i>
-                Ver Dashboards
-            </a>
-            <a href="#" class="btn btn-futuristic"
-                style="background: linear-gradient(135deg, var(--color-accent-secondary), var(--color-accent-primary));">
-                <i class="bi bi-file-earmark-text me-2"></i>
-                Documentación
-            </a>
-            <a href="https://github.com/JODACHSE/Modelo-Predictivo" target="_blank" class="btn btn-futuristic"
-                style="background: linear-gradient(135deg, #333, #666);">
-                <i class="bi bi-github me-2"></i>
-                GitHub
-            </a>
+<section class="cta-section text-center py-5">
+    <div class="card shadow-lg border-0 bg-dark text-white">
+        <div class="card-body py-5">
+            <h2 class="display-5 fw-bold mb-4">
+                ¿Listo para explorar los datos?
+            </h2>
+            <p class="lead mb-4 text-light">
+                Descubre insights valiosos sobre el alumbrado público y zonas Wi-Fi en ciudades inteligentes
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="#" class="btn btn-primary btn-lg">
+                    <i class="bi bi-bar-chart-fill me-2"></i>
+                    Interactua con PowerBi
+                </a>
+                <a href="#" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-file-earmark-text me-2"></i>
+                    Documentación
+                </a>
+                <a href="https://github.com/JODACHSE/Modelo-Predictivo" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-github me-2"></i>
+                    GitHub
+                </a>
+            </div>
         </div>
     </div>
 </section>

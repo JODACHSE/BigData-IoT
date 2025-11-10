@@ -1,0 +1,175 @@
+{% extends 'index.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="header-section py-5 mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-4 fw-bold text-primary mb-4">
+                Contáctanos
+            </h1>
+            <p class="lead text-muted">
+                ¿Tienes preguntas sobre nuestro proyecto? Estamos aquí para ayudarte
+                y colaborar en el desarrollo de ciudades inteligentes.
+            </p>
+        </div>
+        <div class="col-lg-4 text-center">
+            <i class="bi bi-envelope-fill display-1 text-warning"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Formulario de Contacto -->
+<section class="contact-form-section mb-5">
+    <div class="row g-5">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h3 class="card-title mb-4 text-primary">
+                        <i class="bi bi-send me-2"></i>
+                        Envíanos un Mensaje
+                    </h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre completo</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" placeholder="tu@email.com">
+                            </div>
+                            <div class="col-12">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="asunto" placeholder="Asunto del mensaje">
+                            </div>
+                            <div class="col-12">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="5"
+                                    placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-send-fill me-2"></i>
+                                    Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body p-4">
+                    <h4 class="text-primary mb-4">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Información de Contacto
+                    </h4>
+
+                    <div class="mb-4">
+                        <h6 class="text-warning">
+                            <i class="bi bi-envelope me-2"></i>
+                            Correo Electrónico
+                        </h6>
+                        <p class="text-muted">equipo@wololo-project.com</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-info">
+                            <i class="bi bi-github me-2"></i>
+                            GitHub
+                        </h6>
+                        <p class="text-muted">github.com/JODACHSE/Modelo-Predictivo</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-success">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Ubicación
+                        </h6>
+                        <p class="text-muted">
+                            Universidad de Cundinamarca<br>
+                            Chía, Cundinamarca
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-primary">
+                            <i class="bi bi-clock me-2"></i>
+                            Tiempo de Respuesta
+                        </h6>
+                        <p class="text-muted">24-48 horas hábiles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Equipo Section -->
+<section class="team-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        EQUIPO WOLOLO
+    </h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4 mb-md-0">
+                    <img src="{{ url_for('static', filename='WololoIcon.png') }}" alt="Wololo Icon"
+                        class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+                </div>
+                <div class="col-md-9">
+                    <h3 class="text-primary mb-3">
+                        WOLOLO
+                    </h3>
+                    <p class="text-muted fs-5">
+                        Equipo de estudiantes de Ingeniería de Sistemas y Computación de la
+                        Universidad de Cundinamarca, comprometidos con el desarrollo de soluciones
+                        tecnológicas innovadoras para ciudades inteligentes.
+                    </p>
+                    <div class="mt-4">
+                        <span class="badge bg-primary fs-6 p-2 me-2">
+                            <i class="bi bi-mortarboard-fill me-1"></i>
+                            Big Data 701N
+                        </span>
+                        <span class="badge bg-secondary fs-6 p-2">
+                            <i class="bi bi-geo-alt-fill me-1"></i>
+                            U. Cundinamarca - Chía
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section text-center py-5">
+    <div class="card shadow-lg border-0 bg-dark text-white">
+        <div class="card-body py-5">
+            <h2 class="display-5 fw-bold mb-4">
+                ¿Interesado en colaborar?
+            </h2>
+            <p class="lead mb-4 text-light">
+                Únete a nuestro proyecto y contribuye al desarrollo de ciudades inteligentes
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="https://github.com/JODACHSE/Modelo-Predictivo" class="btn btn-primary btn-lg">
+                    <i class="bi bi-github me-2"></i>
+                    Ver en GitHub
+                </a>
+                <a href="mailto:equipo@wololo-project.com" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-envelope me-2"></i>
+                    Contactar por Email
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

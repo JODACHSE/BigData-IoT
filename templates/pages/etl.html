@@ -1,0 +1,526 @@
+{% extends 'index.html' %}
+
+{% block title %}Proceso ETL{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="header-section py-5 mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
+            <h1 class="display-4 fw-bold text-primary mb-4">
+                Proceso ETL
+            </h1>
+            <p class="lead text-muted">
+                Extracción, Transformación y Carga de datos desde el Modelo Entidad-Relación
+                hacia el Data Warehouse para análisis de ciudades inteligentes.
+            </p>
+        </div>
+        <div class="col-lg-4 text-center">
+            <i class="bi bi-gear-fill display-1 text-info"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Arquitectura ETL -->
+<section class="architecture-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        ARQUITECTURA ETL
+    </h2>
+
+    <div class="card shadow-lg border-0 mb-5">
+        <div class="card-body">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 border-end">
+                        <i class="bi bi-database display-4 text-warning mb-3"></i>
+                        <h4 class="text-warning">MER</h4>
+                        <p class="text-muted">CiudadInteligenteMER</p>
+                        <small class="text-muted">Base de datos transaccional normalizada</small>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 border-end">
+                        <i class="bi bi-arrow-right-circle display-4 text-info mb-3"></i>
+                        <h4 class="text-info">ETL</h4>
+                        <p class="text-muted">Procesos de transformación</p>
+                        <small class="text-muted">SSIS, Python, SQL</small>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4">
+                        <i class="bi bi-bar-chart display-4 text-success mb-3"></i>
+                        <h4 class="text-success">DW</h4>
+                        <p class="text-muted">CiudadInteligenteDW</p>
+                        <small class="text-muted">Data Warehouse dimensional</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Proceso ETL Detallado -->
+<section class="etl-detailed mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        PROCESO ETL DETALLADO
+    </h2>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">
+                        <i class="bi bi-cloud-download me-2"></i>
+                        Extracción
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Obtención de datos desde las tablas transaccionales del MER:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            IoT.SensorWiFi
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            IoT.SensorLuminaria
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Ops.Mantenimiento
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Core.Compania
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Catalogo.EstadoInfraestructura
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-gear me-2"></i>
+                        Transformación
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Limpieza y preparación de datos:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Normalización de fechas
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Denormalización de atributos
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Validación de integridad
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Transformación a esquema estrella
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Generación de claves sustitutas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-upload me-2"></i>
+                        Carga
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Inserción en el Data Warehouse:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Dimensiones (Dim.*)
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Hechos (Hechos.*)
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Mantenimiento de índices
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Control de calidad de datos
+                        </li>
+                        <li>
+                            <i class="bi bi-check-circle text-success me-2"></i>
+                            Logging y monitoreo
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interacción con el DW en Somee.com -->
+<section class="dw-interaction mb-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">
+                <i class="bi bi-terminal me-2"></i>
+                Prueba de Conexión al DW (solo SELECT)
+            </h5>
+        </div>
+        <div class="card-body">
+            {% if error %}
+            <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endif %}
+
+            <form method="POST" action="/ETL/query">
+                <div class="mb-3">
+                    <label for="query" class="form-label">Consulta SQL (solo SELECT)</label>
+                    <textarea id="query" name="query" class="form-control" rows="6"
+                        placeholder="Escribe tu consulta SELECT aquí...">{{ (query or 'SELECT TOP 10 * FROM Dim.Fecha ORDER BY Fecha DESC') }}</textarea>
+                    <small class="text-muted">Se bloquean instrucciones peligrosas como DROP, DELETE, INSERT, UPDATE,
+                        etc.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-play-circle me-1"></i> Ejecutar
+                </button>
+            </form>
+
+            {% if columns and rows %}
+            <hr class="my-4">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            {% for col in columns %}
+                            <th scope="col">{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in rows %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <small class="text-muted">Si ves resultados, la conexión con Somee.com está activa.</small>
+</section>
+
+
+<!-- Ejemplos de Código SQL -->
+<section class="code-examples mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        EJEMPLOS DE CÓDIGO SQL
+    </h2>
+
+    <!-- Extracción de Datos -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-database me-2"></i>
+                Extracción: Datos de Sensores WiFi
+            </h5>
+        </div>
+        <div class="card-body">
+            <p class="text-muted mb-3">
+                Consulta para extraer mediciones de sensores WiFi desde el MER:
+            </p>
+            <pre class="bg-light p-3 rounded"><code>SELECT 
+    sw.IdSensorWiFi,
+    sw.FechaMedicion,
+    sw.VelocidadSubida,
+    sw.VelocidadBajada,
+    w.Nombre AS NombreWiFi,
+    u.Nombre1 + ' ' + u.Apellido1 AS Usuario,
+    tc.Nombre AS TipoConexion
+FROM IoT.SensorWiFi sw
+    INNER JOIN IoT.WiFi w ON sw.IdWiFi = w.IdWiFi
+    LEFT JOIN Core.Usuario u ON sw.IdUsuario = u.IdUsuario
+    LEFT JOIN Catalogo.TipoConexion tc ON sw.IdTipoConexion = tc.IdTipoConexion
+WHERE sw.FechaMedicion >= @FechaInicio</code></pre>
+        </div>
+    </div>
+
+    <!-- Transformación de Fechas -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-calendar me-2"></i>
+                Transformación: Dimensión Fecha
+            </h5>
+        </div>
+        <div class="card-body">
+            <p class="text-muted mb-3">
+                Creación de la dimensión fecha con formato YYYYMMDD:
+            </p>
+            <pre class="bg-light p-3 rounded"><code>-- Crear dimensión fecha (rango 2015-2030)
+INSERT INTO Dim.Fecha (IdFecha, Fecha, Anio, Mes, Dia, Trimestre, NombreMes, DiaSemana, NombreDiaSemana, SemanaAnio)
+SELECT
+    CONVERT(INT, FORMAT(dt, 'yyyyMMdd')) AS IdFecha,
+    dt AS Fecha,
+    YEAR(dt) AS Anio,
+    MONTH(dt) AS Mes,
+    DAY(dt) AS Dia,
+    DATEPART(QUARTER, dt) AS Trimestre,
+    DATENAME(MONTH, dt) AS NombreMes,
+    ((DATEPART(WEEKDAY, dt) + 5) % 7) + 1 AS DiaSemana,
+    DATENAME(WEEKDAY, dt) AS NombreDiaSemana,
+    DATEPART(WEEK, dt) AS SemanaAnio
+FROM (
+    SELECT DATEADD(DAY, number, '2015-01-01') AS dt
+    FROM master..spt_values 
+    WHERE type = 'P' AND number <= DATEDIFF(DAY, '2015-01-01', '2030-12-31')
+) dates</code></pre>
+        </div>
+    </div>
+
+    <!-- Carga de Hechos -->
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-bar-chart me-2"></i>
+                Carga: Tabla de Hechos SensorWiFi
+            </h5>
+        </div>
+        <div class="card-body">
+            <p class="text-muted mb-3">
+                Inserción en la tabla de hechos con claves sustitutas:
+            </p>
+            <pre class="bg-light p-3 rounded"><code>INSERT INTO Hechos.SensorWiFi (
+    IdSensorWiFiSource,
+    IdFechaMedicion,
+    IdFechaConexion,
+    IdWiFi,
+    IdUsuario,
+    IdTipoConexion,
+    VelocidadSubida,
+    VelocidadBajada,
+    DireccionIP
+)
+SELECT 
+    sw.IdSensorWiFi,
+    df.IdFecha,
+    dc.IdFecha,
+    dw.IdWiFi,
+    du.IdUsuario,
+    dtc.IdTipoConexion,
+    sw.VelocidadSubida,
+    sw.VelocidadBajada,
+    sw.DireccionIP
+FROM CiudadInteligenteMER.IoT.SensorWiFi sw
+    INNER JOIN Dim.Fecha df ON CONVERT(DATE, sw.FechaMedicion) = df.Fecha
+    LEFT JOIN Dim.Fecha dc ON CONVERT(DATE, sw.FechaConexion) = dc.Fecha
+    INNER JOIN Dim.WiFi dw ON sw.IdWiFi = dw.IdWiFiSource
+    LEFT JOIN Dim.Usuario du ON sw.IdUsuario = du.IdUsuarioSource
+    LEFT JOIN Dim.TipoConexion dtc ON sw.IdTipoConexion = dtc.IdTipoConexionSource</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- Estructura del Data Warehouse -->
+<section class="dw-structure mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        ESTRUCTURA DEL DATA WAREHOUSE
+    </h2>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-table me-2"></i>
+                        Dimensiones
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.Fecha</strong> - Calendario con clave YYYYMMDD
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.Ubicacion</strong> - Coordenadas geográficas
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.Compania</strong> - Información de empresas
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.Usuario</strong> - Datos de usuarios del sistema
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.WiFi</strong> - Puntos de acceso WiFi denormalizados
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-primary">Dim.Alumbrado</strong> - Luminarias públicas
+                        </li>
+                        <li>
+                            <strong class="text-primary">Dim.EstadoInfraestructura</strong> - Estados operativos
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-bar-chart me-2"></i>
+                        Tablas de Hechos
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <strong class="text-success">Hechos.SensorWiFi</strong> - Mediciones de velocidad y
+                            conexiones
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-success">Hechos.SensorLuminaria</strong> - Consumo y estado de
+                            luminarias
+                        </li>
+                        <li class="mb-2">
+                            <strong class="text-success">Hechos.Mantenimiento</strong> - Actividades de mantenimiento
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <h6 class="text-info">Características del DW:</h6>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-1">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Esquema estrella (Star Schema)
+                            </li>
+                            <li class="mb-1">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Claves sustitutas para independencia
+                            </li>
+                            <li class="mb-1">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Dimensiones conformadas
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Optimizado para consultas analíticas
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Herramientas y Tecnologías -->
+<section class="tools-section mb-5">
+    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
+        HERRAMIENTAS Y TECNOLOGÍAS
+    </h2>
+
+    <div class="row g-4">
+        <div class="col-6 col-md-3">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <!-- SVG Python: responsivo -->
+                    <img src="{{ url_for('static', filename='img/python.svg') }}" alt="Python"
+                        class="img-fluid svg-icon mb-3">
+                    <h5>Python</h5>
+                    <small class="text-muted">Scripting ETL avanzado</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <i class="fas fa-database display-6 text-success mb-3"></i>
+                    <h5>SQL Server</h5>
+                    <small class="text-muted">Base de Datos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body">
+                    <!-- SVG Somee: cambia con tema -->
+                    <img data-dark-src="{{ url_for('static', filename='img/somee-dark.svg') }}"
+                        data-light-src="{{ url_for('static', filename='img/somee-white.svg') }}"
+                        src="{{ url_for('static', filename='img/somee-white.svg') }}" alt="Somee Hosting"
+                        class="img-fluid svg-icon mb-3">
+                    <h5>Somee</h5>
+                    <small class="text-muted">Hosting MS SQL</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Flujo de Datos -->
+<section class="data-flow mb-5">
+    <div class="card shadow-lg border-0 bg-dark text-white">
+        <div class="card-body p-5">
+            <h2 class="display-5 fw-bold mb-4 text-center text-warning">
+                Flujo de Datos ETL
+            </h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="p-3 border border-warning rounded">
+                        <i class="bi bi-database display-6 text-warning mb-3"></i>
+                        <h5>MER</h5>
+                        <p class="text-light small">Datos transaccionales normalizados</p>
+                    </div>
+                </div>
+                <div class="col-md-1 mb-4 d-flex align-items-center justify-content-center">
+                    <i class="bi bi-arrow-right display-6 text-info"></i>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="p-3 border border-info rounded">
+                        <i class="bi bi-gear display-6 text-info mb-3"></i>
+                        <h5>Transformación</h5>
+                        <p class="text-light small">Limpieza y denormalización</p>
+                    </div>
+                </div>
+                <div class="col-md-1 mb-4 d-flex align-items-center justify-content-center">
+                    <i class="bi bi-arrow-right display-6 text-success"></i>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="p-3 border border-success rounded">
+                        <i class="bi bi-bar-chart display-6 text-success mb-3"></i>
+                        <h5>Data Warehouse</h5>
+                        <p class="text-light small">Esquema estrella para análisis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

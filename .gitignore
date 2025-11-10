@@ -1,2 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Entorno virtual
+.venv/
+
+# Configuración local
 .env
-.venv
+
+# OS
+Thumbs.db
+.DS_Store
