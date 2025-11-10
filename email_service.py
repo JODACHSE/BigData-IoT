@@ -34,9 +34,16 @@ def send_email(nombre: str, from_email: str, asunto: str, mensaje: str) -> None:
 
     context = ssl.create_default_context()
 
-    with smtplib.SMTP(host, port, timeout=15) as server:
-        server.ehlo()
-        server.starttls(context=context)
-        server.ehlo()
-        server.login(user, password)
-        server.send_message(msg)
+    # Intento 1: STARTTLS en 587 con timeout; si falla, intentar SSL en 465
+    try:
+        with smtplib.SMTP(host, port, timeout=15) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.ehlo()
+            server.login(user, password)
+            server.send_message(msg)
+    except Exception:
+        with smtplib.SMTP_SSL(host, 465, context=context, timeout=15) as server:
+            server.login(user, password)
+            server.send_message(msg)
+            print("Email enviado por SSL en 465.")
