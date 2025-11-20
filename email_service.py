@@ -1,6 +1,7 @@
 # función: send_email
 import os
 import smtplib
+import socket
 from email.mime.text import MIMEText
 import ssl
 
@@ -34,16 +35,22 @@ def send_email(nombre: str, from_email: str, asunto: str, mensaje: str) -> None:
 
     context = ssl.create_default_context()
 
+    # Resolver IPv4 para evitar problemas de IPv6 en algunos entornos (p. ej. Render)
+    try:
+        ipv4_host = socket.gethostbyname(host)
+    except Exception:
+        ipv4_host = host  # fallback al host original si falla la resolución
+
     # Intento 1: STARTTLS en 587 con timeout; si falla, intentar SSL en 465
     try:
-        with smtplib.SMTP(host, port, timeout=15) as server:
+        with smtplib.SMTP(ipv4_host, port, timeout=15) as server:
             server.ehlo()
             server.starttls(context=context)
             server.ehlo()
             server.login(user, password)
             server.send_message(msg)
     except Exception:
-        with smtplib.SMTP_SSL(host, 465, context=context, timeout=15) as server:
+        with smtplib.SMTP_SSL(ipv4_host, 465, context=context, timeout=15) as server:
             server.login(user, password)
             server.send_message(msg)
             print("Email enviado por SSL en 465.")

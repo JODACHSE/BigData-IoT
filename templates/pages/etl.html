@@ -21,166 +21,1833 @@
     </div>
 </section>
 
-<!-- Arquitectura ETL -->
-<section class="architecture-section mb-5">
-    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
-        ARQUITECTURA ETL
-    </h2>
-
-    <div class="card shadow-lg border-0 mb-5">
-        <div class="card-body">
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="p-4 border-end">
-                        <i class="bi bi-database display-4 text-warning mb-3"></i>
-                        <h4 class="text-warning">MER</h4>
-                        <p class="text-muted">CiudadInteligenteMER</p>
-                        <small class="text-muted">Base de datos transaccional normalizada</small>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="p-4 border-end">
-                        <i class="bi bi-arrow-right-circle display-4 text-info mb-3"></i>
-                        <h4 class="text-info">ETL</h4>
-                        <p class="text-muted">Procesos de transformación</p>
-                        <small class="text-muted">SSIS, Python, SQL</small>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="p-4">
-                        <i class="bi bi-bar-chart display-4 text-success mb-3"></i>
-                        <h4 class="text-success">DW</h4>
-                        <p class="text-muted">CiudadInteligenteDW</p>
-                        <small class="text-muted">Data Warehouse dimensional</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Proceso ETL Detallado -->
 <section class="etl-detailed mb-5">
     <h2 class="text-center mb-5 display-5 fw-bold text-primary">
-        PROCESO ETL DETALLADO
+        Proceso ETL Detallado
     </h2>
 
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-header bg-warning text-dark">
-                    <h4 class="mb-0">
-                        <i class="bi bi-cloud-download me-2"></i>
-                        Extracción
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        Obtención de datos desde las tablas transaccionales del MER:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            IoT.SensorWiFi
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            IoT.SensorLuminaria
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Ops.Mantenimiento
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Core.Compania
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Catalogo.EstadoInfraestructura
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-header bg-info text-white">
-                    <h4 class="mb-0">
-                        <i class="bi bi-gear me-2"></i>
-                        Transformación
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        Limpieza y preparación de datos:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Normalización de fechas
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Denormalización de atributos
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Validación de integridad
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Transformación a esquema estrella
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Generación de claves sustitutas
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-header bg-success text-white">
-                    <h4 class="mb-0">
-                        <i class="bi bi-upload me-2"></i>
-                        Carga
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">
-                        Inserción en el Data Warehouse:
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Dimensiones (Dim.*)
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Hechos (Hechos.*)
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Mantenimiento de índices
-                        </li>
-                        <li class="mb-2">
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Control de calidad de datos
-                        </li>
-                        <li>
-                            <i class="bi bi-check-circle text-success me-2"></i>
-                            Logging y monitoreo
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <ul class="nav nav-tabs" id="etlTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="mer-tab" data-bs-toggle="tab" data-bs-target="#panel-mer" type="button"
+                role="tab" aria-controls="panel-mer" aria-selected="true">Extracción</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="etl-tab" data-bs-toggle="tab" data-bs-target="#panel-etl" type="button"
+                role="tab" aria-controls="panel-etl" aria-selected="false">Transformación</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="dw-tab" data-bs-toggle="tab" data-bs-target="#panel-dw" type="button"
+                role="tab" aria-controls="panel-dw" aria-selected="false">Carga</button>
+        </li>
+    </ul>
 </section>
+
+<div class="tab-content" id="etlTabsContent">
+    <div class="tab-pane fade show active" id="panel-mer" role="tabpanel" aria-labelledby="mer-tab">
+        <!-- Modelo Entidad Relación -->
+        <section class="model-entity-relation mb-5">
+            <h3 class="text-center mb-5 display-5 fw-bold text-warning">Modelo Entidad Relación</h3>
+
+            <div class="accordion" id="accordionMER">
+                <!-- Esquema Geo -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingGeo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseGeo" aria-expanded="false" aria-controls="collapseGeo">
+                            <i class="bi bi-geo-alt me-2"></i>Esquema Geo
+                        </button>
+                    </h2>
+                    <div id="collapseGeo" class="accordion-collapse collapse" aria-labelledby="headingGeo"
+                        data-bs-parent="#accordionMER">
+                        <div class="accordion-body">
+
+                            <!-- Tabla Pais -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapsePais">
+                                            Geo.Pais
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapsePais" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Geo.Pais
+(
+    IdPais INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    CodigoISO3 CHAR(3) NOT NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tabla maestra para almacenar
+                                            países con su código ISO3 estándar. Es la entidad raíz de la jerarquía
+                                            geográfica.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Departamento -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDepartamento">
+                                            Geo.Departamento
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDepartamento" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Geo.Departamento
+(
+    IdDepartamento INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    IdPais INT FOREIGN KEY REFERENCES Geo.Pais(IdPais),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Representa divisiones
+                                            administrativas dentro de un país. Mantiene relación con País para formar la
+                                            jerarquía geográfica.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Municipio -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseMunicipio">
+                                            Geo.Municipio
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseMunicipio" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Geo.Municipio
+(
+    IdMunicipio INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    IdDepartamento INT FOREIGN KEY REFERENCES Geo.Departamento(IdDepartamento),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Almacena municipios o ciudades
+                                            dentro de un departamento. Completa la jerarquía geográfica País →
+                                            Departamento → Municipio.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Barrio -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseBarrio">
+                                            Geo.Barrio
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseBarrio" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Geo.Barrio
+(
+    IdBarrio INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    IdMunicipio INT FOREIGN KEY REFERENCES Geo.Municipio(IdMunicipio),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Representa barrios o zonas
+                                            dentro de un municipio. Es el nivel más granular de la jerarquía geográfica.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoZona -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoZona">
+                                            Geo.TipoZona
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoZona" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Geo.TipoZona
+(
+    IdTipoZona INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Catálogo para clasificar zonas
+                                            (residencial, comercial, industrial, etc.). Permite categorizar direcciones
+                                            por tipo de zona.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Esquema Catalogo -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCatalogo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCatalogo" aria-expanded="false" aria-controls="collapseCatalogo">
+                            <i class="bi bi-list-ul me-2"></i>Esquema Catalogo
+                        </button>
+                    </h2>
+                    <div id="collapseCatalogo" class="accordion-collapse collapse" aria-labelledby="headingCatalogo"
+                        data-bs-parent="#accordionMER">
+                        <div class="accordion-body">
+
+                            <!-- Tabla TipoCompania -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoCompania">
+                                            Catalogo.TipoCompania
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoCompania" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoCompania
+(
+    IdTipoCompania INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Catálogo para clasificar tipos
+                                            de compañías (proveedor de servicios, municipalidad, privada, etc.).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoUsuario -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoUsuario">
+                                            Catalogo.TipoUsuario
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoUsuario" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoUsuario
+(
+    IdTipoUsuario INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Define tipos de usuarios
+                                            (administrador, técnico, ciudadano, etc.) para control de acceso y permisos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoRol -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoRol">
+                                            Catalogo.TipoRol
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoRol" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoRol
+(
+    IdTipoRol INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Catálogo de roles dentro de una
+                                            compañía (empleado, supervisor, gerente, etc.) para definir
+                                            responsabilidades.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoDocumento -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoDocumento">
+                                            Catalogo.TipoDocumento
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoDocumento" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoDocumento
+(
+    IdTipoDocumento INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tipos de documentos de
+                                            identificación (DNI, pasaporte, cédula, etc.) para validación de usuarios.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoContacto -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoContacto">
+                                            Catalogo.TipoContacto
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoContacto" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoContacto
+(
+    IdTipoContacto INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tipos de medios de contacto
+                                            (email, teléfono, celular, etc.) para gestionar múltiples formas de
+                                            contacto.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla TipoConexion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoConexion">
+                                            Catalogo.TipoConexion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoConexion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.TipoConexion
+(
+    IdTipoConexion INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tipos de conexión WiFi (2.4GHz,
+                                            5GHz, Ethernet, etc.) para clasificar las conexiones de sensores.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla EstadoInfraestructura -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseEstadoInfraestructura">
+                                            Catalogo.EstadoInfraestructura
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseEstadoInfraestructura" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Catalogo.EstadoInfraestructura
+(
+    IdEstado INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(50) NOT NULL,
+    Descripcion NVARCHAR(200) NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Estados de infraestructuras IoT
+                                            (activo, inactivo, mantenimiento, etc.) para monitoreo del estado de
+                                            dispositivos.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Esquema Core -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCore">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseCore" aria-expanded="false" aria-controls="collapseCore">
+                            <i class="bi bi-cpu me-2"></i>Esquema Core
+                        </button>
+                    </h2>
+                    <div id="collapseCore" class="accordion-collapse collapse" aria-labelledby="headingCore"
+                        data-bs-parent="#accordionMER">
+                        <div class="accordion-body">
+
+                            <!-- Tabla Direccion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDireccion">
+                                            Core.Direccion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDireccion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.Direccion
+(
+    IdDireccion INT IDENTITY PRIMARY KEY,
+    IdBarrio INT FOREIGN KEY REFERENCES Geo.Barrio(IdBarrio),
+    IdTipoZona INT FOREIGN KEY REFERENCES Geo.TipoZona(IdTipoZona),
+    Calle VARCHAR(100) NOT NULL,
+    Numero VARCHAR(20) NOT NULL,
+    CodigoPostal VARCHAR(10) NOT NULL,
+    DetalleExtra VARCHAR(100) NULL,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Direcciones físicas completas
+                                            con referencias a barrio y tipo de zona. Centraliza la información de
+                                            ubicación para usuarios y compañías.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Compania -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseCompania">
+                                            Core.Compania
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseCompania" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.Compania
+(
+    IdCompania INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100) NOT NULL,
+    IdTipoCompania INT FOREIGN KEY REFERENCES Catalogo.TipoCompania(IdTipoCompania),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Entidad principal para empresas
+                                            u organizaciones que gestionan infraestructura de ciudad inteligente.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Usuario -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUsuario">
+                                            Core.Usuario
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUsuario" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.Usuario
+(
+    IdUsuario INT IDENTITY PRIMARY KEY,
+    Nombre1 NVARCHAR(50) NOT NULL,
+    Nombre2 NVARCHAR(50) NULL,
+    Apellido1 NVARCHAR(50) NOT NULL,
+    Apellido2 NVARCHAR(50) NULL,
+    IdTipoUsuario INT FOREIGN KEY REFERENCES Catalogo.TipoUsuario(IdTipoUsuario),
+    IdTipoDocumento INT FOREIGN KEY REFERENCES Catalogo.TipoDocumento(IdTipoDocumento),
+    Documento NVARCHAR(20) UNIQUE,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Entidad central para usuarios
+                                            del sistema con información personal completa y tipos de usuario para
+                                            control de acceso.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla Contacto -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseContacto">
+                                            Core.Contacto
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseContacto" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.Contacto
+(
+    IdContacto INT IDENTITY PRIMARY KEY,
+    Valor NVARCHAR(200) NOT NULL,
+    IdTipoContacto INT FOREIGN KEY REFERENCES Catalogo.TipoContacto(IdTipoContacto),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Almacena información de contacto
+                                            (emails, teléfonos) de forma separada para permitir múltiples contactos por
+                                            usuario.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla UsuarioContacto -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUsuarioContacto">
+                                            Core.UsuarioContacto
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUsuarioContacto" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.UsuarioContacto
+(
+    IdUsuarioContacto INT IDENTITY PRIMARY KEY,
+    IdUsuario INT FOREIGN KEY REFERENCES Core.Usuario(IdUsuario),
+    IdContacto INT FOREIGN KEY REFERENCES Core.Contacto(IdContacto),
+    EsPrincipal BIT DEFAULT 0,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tabla de unión entre usuarios y
+                                            contactos, permitiendo múltiples contactos por usuario con indicador de
+                                            contacto principal.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla RolCompania -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseRolCompania">
+                                            Core.RolCompania
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseRolCompania" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.RolCompania
+(
+    IdRolCompania INT IDENTITY PRIMARY KEY,
+    IdUsuario INT FOREIGN KEY REFERENCES Core.Usuario(IdUsuario),
+    IdCompania INT FOREIGN KEY REFERENCES Core.Compania(IdCompania),
+    IdRol INT FOREIGN KEY REFERENCES Catalogo.TipoRol(IdTipoRol),
+    FechaIngreso DATETIME,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Relaciona usuarios con compañías
+                                            y define su rol dentro de la organización, permitiendo usuarios con
+                                            múltiples roles en diferentes compañías.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla UsuarioDireccion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUsuarioDireccion">
+                                            Core.UsuarioDireccion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUsuarioDireccion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.UsuarioDireccion
+(
+    IdUsuarioDireccion INT IDENTITY PRIMARY KEY,
+    IdUsuario INT NOT NULL FOREIGN KEY REFERENCES Core.Usuario(IdUsuario),
+    IdDireccion INT NOT NULL FOREIGN KEY REFERENCES Core.Direccion(IdDireccion),
+    EsPrincipal BIT DEFAULT 0,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Relación muchos a muchos entre
+                                            usuarios y direcciones, permitiendo que un usuario tenga múltiples
+                                            direcciones con indicador de dirección principal.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla CompaniaDireccion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseCompaniaDireccion">
+                                            Core.CompaniaDireccion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseCompaniaDireccion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Core.CompaniaDireccion
+(
+    IdCompaniaDireccion INT IDENTITY PRIMARY KEY,
+    IdCompania INT NOT NULL FOREIGN KEY REFERENCES Core.Compania(IdCompania),
+    IdDireccion INT NOT NULL FOREIGN KEY REFERENCES Core.Direccion(IdDireccion),
+    EsPrincipal BIT DEFAULT 0,
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Relación muchos a muchos entre
+                                            compañías y direcciones, permitiendo que una compañía tenga múltiples
+                                            ubicaciones con indicador de dirección principal.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Esquema IoT -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingIoT">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseIoT" aria-expanded="false" aria-controls="collapseIoT">
+                            <i class="bi bi-wifi me-2"></i>Esquema IoT
+                        </button>
+                    </h2>
+                    <div id="collapseIoT" class="accordion-collapse collapse" aria-labelledby="headingIoT"
+                        data-bs-parent="#accordionMER">
+                        <div class="accordion-body">
+
+                            <!-- Tabla Ubicacion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUbicacion">
+                                            IoT.Ubicacion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUbicacion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE IoT.Ubicacion
+(
+    IdUbicacion INT IDENTITY PRIMARY KEY,
+    Latitud DECIMAL(9,6),
+    Longitud DECIMAL(9,6),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Almacena coordenadas geográficas
+                                            para dispositivos IoT. Permite ubicación precisa de infraestructuras como
+                                            puntos WiFi y alumbrado.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla WiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseWiFi">
+                                            IoT.WiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseWiFi" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE IoT.WiFi
+(
+    IdWiFi INT IDENTITY PRIMARY KEY,
+    Nombre NVARCHAR(100),
+    IdUbicacion INT FOREIGN KEY REFERENCES IoT.Ubicacion(IdUbicacion),
+    IdCompania INT FOREIGN KEY REFERENCES Core.Compania(IdCompania),
+    IdEstado INT FOREIGN KEY REFERENCES Catalogo.EstadoInfraestructura(IdEstado),
+    RangoCobertura DECIMAL(10,2),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Puntos de acceso WiFi públicos
+                                            con información de ubicación, compañía responsable, estado operativo y rango
+                                            de cobertura.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla SensorWiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSensorWiFi">
+                                            IoT.SensorWiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSensorWiFi" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE IoT.SensorWiFi
+(
+    IdSensorWiFi BIGINT IDENTITY PRIMARY KEY,
+    IdWiFi INT FOREIGN KEY REFERENCES IoT.WiFi(IdWiFi),
+    IdUsuario INT FOREIGN KEY REFERENCES Core.Usuario(IdUsuario),
+    FechaConexion DATETIME,
+    FechaMedicion DATETIME,
+    VelocidadSubida DECIMAL(10,2),
+    VelocidadBajada DECIMAL(10,2),
+    DireccionIP VARCHAR(45),
+    IdTipoConexion INT FOREIGN KEY REFERENCES Catalogo.TipoConexion(IdTipoConexion),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Registra mediciones de
+                                            conexiones WiFi con métricas de velocidad, usuario conectado y tipo de
+                                            conexión para análisis de rendimiento.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla AlumbradoPublico -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseAlumbradoPublico">
+                                            IoT.AlumbradoPublico
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseAlumbradoPublico" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE IoT.AlumbradoPublico
+(
+    IdAlumbrado INT IDENTITY PRIMARY KEY,
+    Codigo NVARCHAR(50) UNIQUE,
+    IdUbicacion INT FOREIGN KEY REFERENCES IoT.Ubicacion(IdUbicacion),
+    IdCompania INT FOREIGN KEY REFERENCES Core.Compania(IdCompania),
+    IdEstado INT FOREIGN KEY REFERENCES Catalogo.EstadoInfraestructura(IdEstado),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Luminarias de alumbrado público
+                                            con código único, ubicación, compañía responsable y estado operativo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla SensorLuminaria -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSensorLuminaria">
+                                            IoT.SensorLuminaria
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSensorLuminaria" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE IoT.SensorLuminaria
+(
+    IdSensorLuminaria BIGINT IDENTITY PRIMARY KEY,
+    IdAlumbrado INT FOREIGN KEY REFERENCES IoT.AlumbradoPublico(IdAlumbrado),
+    FechaMedicion DATETIME,
+    Consumo DECIMAL(10,2),
+    Temperatura DECIMAL(5,2),
+    Luminiscencia DECIMAL(5,2),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Mediciones de sensores en
+                                            luminarias: consumo energético, temperatura y nivel de luminiscencia para
+                                            monitoreo de eficiencia.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Esquema Ops -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOps">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOps" aria-expanded="false" aria-controls="collapseOps">
+                            <i class="bi bi-tools me-2"></i>Esquema Ops
+                        </button>
+                    </h2>
+                    <div id="collapseOps" class="accordion-collapse collapse" aria-labelledby="headingOps"
+                        data-bs-parent="#accordionMER">
+                        <div class="accordion-body">
+
+                            <!-- Tabla Mantenimiento -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseMantenimiento">
+                                            Ops.Mantenimiento
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseMantenimiento" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Ops.Mantenimiento
+(
+    IdMantenimiento INT IDENTITY PRIMARY KEY,
+    IdAlumbrado INT NULL FOREIGN KEY REFERENCES IoT.AlumbradoPublico(IdAlumbrado),
+    IdWiFi INT NULL FOREIGN KEY REFERENCES IoT.WiFi(IdWiFi),
+    Fecha DATETIME,
+    Descripcion NVARCHAR(200),
+    IdCompania INT FOREIGN KEY REFERENCES Core.Compania(IdCompania),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Registra actividades de
+                                            mantenimiento tanto para alumbrado público como para puntos WiFi, con fecha,
+                                            descripción y compañía responsable.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tabla MantenimientoEmpleado -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseMantenimientoEmpleado">
+                                            Ops.MantenimientoEmpleado
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseMantenimientoEmpleado" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Ops.MantenimientoEmpleado
+(
+    IdMantenimientoEmpleado INT IDENTITY PRIMARY KEY,
+    IdMantenimiento INT FOREIGN KEY REFERENCES Ops.Mantenimiento(IdMantenimiento),
+    IdEmpleado INT FOREIGN KEY REFERENCES Core.RolCompania(IdRolCompania),
+    FechaCreacion DATETIME DEFAULT GETDATE(),
+    FechaActualizacion DATETIME DEFAULT GETDATE()
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Relaciona empleados con
+                                            actividades de mantenimiento, permitiendo registrar qué técnicos
+                                            participaron en cada trabajo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="tab-pane fade" id="panel-etl" role="tabpanel" aria-labelledby="etl-tab">
+        <!-- Proceso ETL -->
+        <section class="model-entity-relation mb-5">
+            <h3 class="text-center mb-5 display-5 fw-bold text-info">Proceso ETL</h3>
+
+            <div class="accordion" id="accordionETL">
+                <!-- Dimensiones -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingDimETL">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseDimETL" aria-controls="collapseDimETL">
+                            <i class="bi bi-layers me-2"></i>Carga de Dimensiones
+                        </button>
+                    </h2>
+                    <div id="collapseDimETL" class="accordion-collapse collapse show" aria-labelledby="headingDimETL"
+                        data-bs-parent="#accordionETL">
+                        <div class="accordion-body">
+
+                            <!-- Ubicación -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUbicacionETL">
+                                            <i class="bi bi-geo-alt me-2"></i>Dim.Ubicacion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUbicacionETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: IoT.Ubicacion → Destino: Dim.Ubicacion</h6>
+                                        <pre><code>SELECT        
+    IdUbicacion AS IdUbicacionSource, 
+    Latitud, 
+    Longitud
+FROM IoT.Ubicacion u</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Mapeo directo de coordenadas
+                                            geográficas. Se mantiene el IdUbicacionSource para trazabilidad entre
+                                            sistemas.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compañía -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseCompaniaETL">
+                                            <i class="bi bi-building me-2"></i>Dim.Compania
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseCompaniaETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: Core.Compania + Catalogo.TipoCompania → Destino: Dim.Compania</h6>
+                                        <pre><code>SELECT        
+    c.IdCompania AS IdCompaniaSource, 
+    c.Nombre, 
+    tc.Nombre AS TipoCompania
+FROM { oj Core.Compania c 
+    LEFT OUTER JOIN Catalogo.TipoCompania tc 
+    ON tc.IdTipoCompania = c.IdTipoCompania }</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Denormalización que combina
+                                            compañía con su tipo en una sola dimensión. LEFT JOIN para manejar compañías
+                                            sin tipo definido.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Usuario -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseUsuarioETL">
+                                            <i class="bi bi-person me-2"></i>Dim.Usuario
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseUsuarioETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: Core.Usuario + Catálogos → Destino: Dim.Usuario</h6>
+                                        <pre><code>SELECT        
+    U.IdUsuario AS IdUsuarioSource, 
+    CONCAT(U.Nombre1, ' ', ISNULL(U.Nombre2, ''), ' ', 
+           U.Apellido1, ' ', ISNULL(U.Apellido2, '')) AS NombreCompleto, 
+    TU.Nombre AS TipoUsuario, 
+    TD.Nombre AS TipoDocumento, 
+    U.Documento
+FROM { oj { oj Core.Usuario U 
+    LEFT OUTER JOIN Catalogo.TipoUsuario TU 
+    ON U.IdTipoUsuario = TU.IdTipoUsuario } 
+    LEFT OUTER JOIN Catalogo.TipoDocumento TD 
+    ON U.IdTipoDocumento = TD.IdTipoDocumento }</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Consolidación de nombres en
+                                            campo único (NombreCompleto) y denormalización de tipos de usuario y
+                                            documento. Manejo de valores nulos en nombres y apellidos.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Estado Infraestructura -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseEstadoETL">
+                                            <i class="bi bi-clipboard-check me-2"></i>Dim.EstadoInfraestructura
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseEstadoETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: Catalogo.EstadoInfraestructura → Destino: Dim.EstadoInfraestructura
+                                        </h6>
+                                        <pre><code>SELECT        
+    IdEstado AS IdEstadoSource, 
+    Nombre, 
+    Descripcion
+FROM Catalogo.EstadoInfraestructura ei</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Carga directa de catálogo de
+                                            estados. Dimensión tipo SCD (Slowly Changing Dimension) Type 1.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tipo Conexión -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTipoConexionETL">
+                                            <i class="bi bi-wifi me-2"></i>Dim.TipoConexion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTipoConexionETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: Catalogo.TipoConexion → Destino: Dim.TipoConexion</h6>
+                                        <pre><code>SELECT        
+    IdTipoConexion AS IdTipoConexionSource, 
+    Nombre
+FROM Catalogo.TipoConexion
+WHERE (IdTipoConexion IS NOT NULL)</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Filtrado de registros nulos y
+                                            mapeo directo de tipos de conexión WiFi.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- WiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseWiFiETL">
+                                            <i class="bi bi-router me-2"></i>Dim.WiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseWiFiETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: IoT.WiFi + Múltiples JOINs → Destino: Dim.WiFi</h6>
+                                        <pre><code>SELECT        
+    w.IdWiFi AS IdWiFiSource, 
+    w.Nombre, 
+    w.RangoCobertura, 
+    c.Nombre AS CompaniaNombre, 
+    e.Nombre AS EstadoNombre, 
+    u.Latitud, 
+    u.Longitud
+FROM { oj { oj { oj IoT.WiFi w 
+    LEFT OUTER JOIN Core.Compania c ON w.IdCompania = c.IdCompania } 
+    LEFT OUTER JOIN Catalogo.EstadoInfraestructura e ON w.IdEstado = e.IdEstado } 
+    LEFT OUTER JOIN IoT.Ubicacion u ON w.IdUbicacion = u.IdUbicacion }
+WHERE (w.IdWiFi IS NOT NULL)</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Denormalización completa con
+                                            múltiples LEFT JOINs para incluir compañía, estado y ubicación en una sola
+                                            dimensión. Filtrado de registros nulos.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Alumbrado -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseAlumbradoETL">
+                                            <i class="bi bi-lightbulb me-2"></i>Dim.Alumbrado
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseAlumbradoETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: IoT.AlumbradoPublico + Múltiples JOINs → Destino: Dim.Alumbrado</h6>
+                                        <pre><code>SELECT        
+    a.IdAlumbrado AS IdAlumbradoSource, 
+    a.Codigo, 
+    c.Nombre AS CompaniaNombre, 
+    ei.Nombre AS EstadoNombre, 
+    u.Latitud, 
+    u.Longitud
+FROM { oj { oj { oj IoT.AlumbradoPublico a 
+    LEFT OUTER JOIN Core.Compania c ON c.IdCompania = a.IdCompania } 
+    LEFT OUTER JOIN Catalogo.EstadoInfraestructura ei ON ei.IdEstado = a.IdEstado } 
+    LEFT OUTER JOIN IoT.Ubicacion u ON u.IdUbicacion = a.IdUbicacion }</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Similar a Dim.WiFi, denormaliza
+                                            alumbrado con compañía, estado y ubicación. Mantiene el código único como
+                                            identificador business.</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hechos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingHechosETL">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseHechosETL" aria-expanded="false" aria-controls="collapseHechosETL">
+                            <i class="bi bi-bar-chart me-2"></i>Carga de Hechos
+                        </button>
+                    </h2>
+                    <div id="collapseHechosETL" class="accordion-collapse collapse" aria-labelledby="headingHechosETL"
+                        data-bs-parent="#accordionETL">
+                        <div class="accordion-body">
+
+                            <!-- Sensor WiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSensorWiFiETL">
+                                            <i class="bi bi-speedometer2 me-2"></i>Hechos.SensorWiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSensorWiFiETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: IoT.SensorWiFi + Dimensiones DW → Destino: Hechos.SensorWiFi</h6>
+                                        <pre><code>SELECT 
+    sw.IdSensorWiFi AS IdSensorWiFiSource,
+    CONVERT(INT, FORMAT(sw.FechaMedicion, 'yyyyMMdd')) AS IdFechaMedicion,
+    CONVERT(INT, FORMAT(sw.FechaConexion, 'yyyyMMdd')) AS IdFechaConexion,
+    dw.IdWiFi,
+    du.IdUsuario,
+    dtc.IdTipoConexion,
+    sw.VelocidadSubida,
+    sw.VelocidadBajada,
+    sw.DireccionIP
+FROM IoT.SensorWiFi sw
+    LEFT JOIN CiudadInteligenteDW.Dim.WiFi dw ON sw.IdWiFi = dw.IdWiFiSource
+    LEFT JOIN CiudadInteligenteDW.Dim.Usuario du ON sw.IdUsuario = du.IdUsuarioSource
+    LEFT JOIN CiudadInteligenteDW.Dim.TipoConexion dtc ON sw.IdTipoConexion = dtc.IdTipoConexionSource
+WHERE sw.IdSensorWiFi IS NOT NULL</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Conversión de fechas a formato
+                                            YYYYMMDD para claves de dimensión fecha. Lookups a dimensiones previamente
+                                            cargadas (WiFi, Usuario, TipoConexion) para obtener claves sustitutas.</p>
+                                        <div class="alert alert-warning">
+                                            <small><strong>Nota:</strong> Este flujo depende de que las dimensiones ya
+                                                estén cargadas</small>
+                                        </div>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sensor Luminaria -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSensorLuminariaETL">
+                                            <i class="bi bi-brightness-high me-2"></i>Hechos.SensorLuminaria
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseSensorLuminariaETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: IoT.SensorLuminaria + Dim.Alumbrado → Destino:
+                                            Hechos.SensorLuminaria</h6>
+                                        <pre><code>SELECT 
+    sl.IdSensorLuminaria AS IdSensorLuminariaSource,
+    CONVERT(INT, FORMAT(sl.FechaMedicion, 'yyyyMMdd')) AS IdFechaMedicion,
+    da.IdAlumbrado,
+    sl.Consumo,
+    sl.Temperatura,
+    sl.Luminiscencia
+FROM IoT.SensorLuminaria sl
+    LEFT JOIN CiudadInteligenteDW.Dim.Alumbrado da ON sl.IdAlumbrado = da.IdAlumbradoSource
+WHERE sl.IdSensorLuminaria IS NOT NULL</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Conversión de fecha a clave
+                                            sustituta y lookup a dimensión Alumbrado. Incluye todas las métricas de
+                                            medición (consumo, temperatura, luminiscencia).</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mantenimiento -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseMantenimientoETL">
+                                            <i class="bi bi-tools me-2"></i>Hechos.Mantenimiento
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseMantenimientoETL" class="collapse">
+                                    <div class="card-body">
+                                        <h6>Origen: Ops.Mantenimiento + Agregaciones → Destino: Hechos.Mantenimiento
+                                        </h6>
+                                        <pre><code>SELECT        
+    m.IdMantenimiento AS IdMantenimientoSource, 
+    CONVERT(INT, FORMAT(m.Fecha, 'yyyyMMdd')) AS IdFecha, 
+    dc.IdCompania, 
+    dwi.IdWiFi, 
+    da.IdAlumbrado, 
+    COUNT(me.IdMantenimientoEmpleado) AS EmpleadosAsignados, 
+    1 AS CantidadMantenimientos, 
+    m.Descripcion
+FROM { oj { oj { oj { oj Ops.Mantenimiento m 
+    LEFT OUTER JOIN Ops.MantenimientoEmpleado me ON me.IdMantenimiento = m.IdMantenimiento } 
+    LEFT OUTER JOIN CiudadInteligenteDW.Dim.Compania dc ON dc.IdCompaniaSource = m.IdCompania } 
+    LEFT OUTER JOIN CiudadInteligenteDW.Dim.WiFi dwi ON dwi.IdWiFiSource = m.IdWiFi } 
+    LEFT OUTER JOIN CiudadInteligenteDW.Dim.Alumbrado da ON da.IdAlumbradoSource = m.IdAlumbrado }
+GROUP BY m.IdMantenimiento, m.Fecha, dc.IdCompania, dwi.IdWiFi, da.IdAlumbrado, m.Descripcion</code></pre>
+                                        <p class="mt-3"><strong>Transformación:</strong> Agregación para contar
+                                            empleados asignados por mantenimiento. Conversión de fecha y lookups a
+                                            dimensiones. Incluye métrica degenerada (Descripcion) y medida de conteo
+                                            (CantidadMantenimientos).</p>
+                                        <div class="alert alert-info">
+                                            <small><strong>Patrón:</strong> OLE DB Source → OLE DB Destination</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patrones y Estrategias -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingPatronesETL">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePatronesETL" aria-expanded="false"
+                            aria-controls="collapsePatronesETL">
+                            <i class="bi bi-diagram-3 me-2"></i>Patrones y Estrategias ETL
+                        </button>
+                    </h2>
+                    <div id="collapsePatronesETL" class="accordion-collapse collapse"
+                        aria-labelledby="headingPatronesETL" data-bs-parent="#accordionETL">
+                        <div class="accordion-body">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-success text-white">
+                                            <h6 class="mb-0">Patrón de Carga</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>OLE DB Source → OLE DB Destination</strong></p>
+                                            <p>Todos los flujos siguen el mismo patrón simple y eficiente para
+                                                transferencia de datos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-info text-white">
+                                            <h6 class="mb-0">Estrategia de Lookup</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Uso de LEFT JOINs en consultas SQL en lugar de componentes Lookup en SSIS
+                                                para mejor rendimiento en grandes volúmenes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0">Transformación de Fechas</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Conversión de DATETIME a INT (YYYYMMDD) usando FORMAT para integración
+                                                con dimensión fecha.</p>
+                                            <code>CONVERT(INT, FORMAT(Fecha, 'yyyyMMdd'))</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-primary text-white">
+                                            <h6 class="mb-0">Denormalización</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Agregación de atributos relacionados en dimensiones para optimizar
+                                                consultas analíticas y reducir joins.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-secondary text-white">
+                                            <h6 class="mb-0">Orden de Ejecución</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ol>
+                                                <li><strong>Dimensiones estáticas:</strong> EstadoInfraestructura,
+                                                    TipoConexion</li>
+                                                <li><strong>Dimensiones simples:</strong> Ubicacion, Compania, Usuario
+                                                </li>
+                                                <li><strong>Dimensiones complejas:</strong> WiFi, Alumbrado</li>
+                                                <li><strong>Hechos:</strong> SensorWiFi, SensorLuminaria, Mantenimiento
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="tab-pane fade" id="panel-dw" role="tabpanel" aria-labelledby="dw-tab">
+        <!-- Modelo Multidimensional (DataWarehouse) -->
+        <section class="model-entity-relation mb-5">
+            <h3 class="text-center mb-5 display-5 fw-bold text-success">Modelo Multidimensional (DataWarehouse)</h3>
+
+            <div class="accordion" id="accordionDW">
+                <!-- Dimensiones -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingDim">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseDim" aria-controls="collapseDim">
+                            <i class="bi bi-layers me-2"></i>Dimensiones
+                        </button>
+                    </h2>
+                    <div id="collapseDim" class="accordion-collapse collapse show" aria-labelledby="headingDim"
+                        data-bs-parent="#accordionDW">
+                        <div class="accordion-body">
+
+                            <!-- Dimensión Fecha -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimFecha">
+                                            Dim.Fecha
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimFecha" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.Fecha
+(
+    IdFecha INT NOT NULL PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Anio SMALLINT NOT NULL,
+    Mes TINYINT NOT NULL,
+    Dia TINYINT NOT NULL,
+    Trimestre TINYINT NOT NULL,
+    NombreMes NVARCHAR(20) NOT NULL,
+    DiaSemana TINYINT NOT NULL,
+    NombreDiaSemana NVARCHAR(20) NOT NULL,
+    SemanaAnio TINYINT NOT NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión de calendario con
+                                            clave sustituta YYYYMMDD para análisis temporal. Incluye todos los atributos
+                                            necesarios para segmentación por tiempo (años, trimestres, meses, días de
+                                            semana).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión Ubicación -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimUbicacion">
+                                            Dim.Ubicacion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimUbicacion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.Ubicacion
+(
+    IdUbicacion INT IDENTITY PRIMARY KEY,
+    IdUbicacionSource INT UNIQUE,
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión geográfica
+                                            simplificada que almacena coordenadas para análisis espacial. Mantiene
+                                            referencia al ID original (IdUbicacionSource) para trazabilidad.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión Compañía -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimCompania">
+                                            Dim.Compania
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimCompania" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.Compania
+(
+    IdCompania INT IDENTITY PRIMARY KEY,
+    IdCompaniaSource INT UNIQUE,
+    Nombre NVARCHAR(100) NOT NULL,
+    TipoCompania NVARCHAR(50) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión denormalizada que
+                                            combina información de compañías y sus tipos. Elimina la necesidad de joins
+                                            para análisis por tipo de compañía.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión Usuario -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimUsuario">
+                                            Dim.Usuario
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimUsuario" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.Usuario
+(
+    IdUsuario INT IDENTITY PRIMARY KEY,
+    IdUsuarioSource INT UNIQUE,
+    NombreCompleto NVARCHAR(200) NOT NULL,
+    TipoUsuario NVARCHAR(50) NULL,
+    TipoDocumento NVARCHAR(50) NULL,
+    Documento NVARCHAR(20) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión de usuarios con
+                                            información consolidada (nombre completo) y tipos denormalizados para
+                                            facilitar filtros y agrupaciones.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión EstadoInfraestructura -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimEstado">
+                                            Dim.EstadoInfraestructura
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimEstado" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.EstadoInfraestructura
+(
+    IdEstadoInfraestructura INT IDENTITY PRIMARY KEY,
+    IdEstadoSource INT UNIQUE,
+    Nombre NVARCHAR(50) NOT NULL,
+    Descripcion NVARCHAR(200) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión tipo SCD (Slowly
+                                            Changing Dimension) Type 1 para estados de infraestructura. Permite análisis
+                                            por estado operativo de dispositivos.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión TipoConexion -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimTipoConexion">
+                                            Dim.TipoConexion
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimTipoConexion" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.TipoConexion
+(
+    IdTipoConexion INT IDENTITY PRIMARY KEY,
+    IdTipoConexionSource INT UNIQUE,
+    Nombre NVARCHAR(50) NOT NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión de tipos de conexión
+                                            WiFi. Tabla pequeña y estática optimizada para filtros rápidos en consultas
+                                            analíticas.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión WiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimWiFi">
+                                            Dim.WiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimWiFi" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.WiFi
+(
+    IdWiFi INT IDENTITY PRIMARY KEY,
+    IdWiFiSource INT UNIQUE,
+    Nombre NVARCHAR(100) NULL,
+    RangoCobertura DECIMAL(10,2) NULL,
+    CompaniaNombre NVARCHAR(100) NULL,
+    EstadoNombre NVARCHAR(50) NULL,
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión altamente
+                                            denormalizada de puntos WiFi. Incluye atributos frecuentemente usados como
+                                            compañía, estado y ubicación para evitar joins costosos.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Dimensión Alumbrado -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseDimAlumbrado">
+                                            Dim.Alumbrado
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseDimAlumbrado" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Dim.Alumbrado
+(
+    IdAlumbrado INT IDENTITY PRIMARY KEY,
+    IdAlumbradoSource INT UNIQUE,
+    Codigo NVARCHAR(50) NOT NULL,
+    CompaniaNombre NVARCHAR(100) NULL,
+    EstadoNombre NVARCHAR(50) NULL,
+    Latitud DECIMAL(9,6) NULL,
+    Longitud DECIMAL(9,6) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Dimensión denormalizada de
+                                            alumbrado público con atributos clave para análisis. Similar a Dim.WiFi,
+                                            optimizada para consultas sin joins adicionales.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hechos -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingHechos">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseHechos" aria-expanded="false" aria-controls="collapseHechos">
+                            <i class="bi bi-bar-chart me-2"></i>Tablas de Hechos
+                        </button>
+                    </h2>
+                    <div id="collapseHechos" class="accordion-collapse collapse" aria-labelledby="headingHechos"
+                        data-bs-parent="#accordionDW">
+                        <div class="accordion-body">
+
+                            <!-- Hechos SensorWiFi -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseHechosSensorWiFi">
+                                            Hechos.SensorWiFi
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseHechosSensorWiFi" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Hechos.SensorWiFi
+(
+    IdSensorWiFi BIGINT IDENTITY PRIMARY KEY,
+    IdSensorWiFiSource BIGINT UNIQUE,
+    
+    -- Dimensiones
+    IdFechaMedicion INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdFechaConexion INT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdWiFi INT NOT NULL FOREIGN KEY REFERENCES Dim.WiFi(IdWiFi),
+    IdUsuario INT NULL FOREIGN KEY REFERENCES Dim.Usuario(IdUsuario),
+    IdTipoConexion INT NULL FOREIGN KEY REFERENCES Dim.TipoConexion(IdTipoConexion),
+
+    -- Medidas
+    VelocidadSubida DECIMAL(10,2) NULL,
+    VelocidadBajada DECIMAL(10,2) NULL,
+
+    -- Degenerada
+    DireccionIP VARCHAR(45) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tabla de hechos para mediciones
+                                            de WiFi con esquema estrella. Contiene métricas de velocidad y claves
+                                            foráneas a todas las dimensiones relevantes. Incluye índices optimizados
+                                            para consultas frecuentes.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hechos SensorLuminaria -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseHechosSensorLuminaria">
+                                            Hechos.SensorLuminaria
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseHechosSensorLuminaria" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Hechos.SensorLuminaria
+(
+    IdSensorLuminaria BIGINT IDENTITY PRIMARY KEY,
+    IdSensorLuminariaSource BIGINT UNIQUE,
+
+    -- Dimensiones
+    IdFechaMedicion INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdAlumbrado INT NOT NULL FOREIGN KEY REFERENCES Dim.Alumbrado(IdAlumbrado),
+
+    -- Medidas
+    Consumo DECIMAL(10,2) NULL,
+    Temperatura DECIMAL(5,2) NULL,
+    Luminiscencia DECIMAL(5,2) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tabla de hechos para mediciones
+                                            de luminarias con métricas de eficiencia energética. Diseño simplificado con
+                                            solo las dimensiones necesarias para análisis de consumo y rendimiento.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hechos Mantenimiento -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseHechosMantenimiento">
+                                            Hechos.Mantenimiento
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseHechosMantenimiento" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>CREATE TABLE Hechos.Mantenimiento
+(
+    IdMantenimiento INT IDENTITY PRIMARY KEY,
+    IdMantenimientoSource INT UNIQUE,
+
+    -- Dimensiones
+    IdFecha INT NOT NULL FOREIGN KEY REFERENCES Dim.Fecha(IdFecha),
+    IdCompania INT NULL FOREIGN KEY REFERENCES Dim.Compania(IdCompania),
+    IdWiFi INT NULL FOREIGN KEY REFERENCES Dim.WiFi(IdWiFi),
+    IdAlumbrado INT NULL FOREIGN KEY REFERENCES Dim.Alumbrado(IdAlumbrado),
+
+    -- Medidas
+    EmpleadosAsignados INT NULL,
+    CantidadMantenimientos INT NOT NULL DEFAULT 1,
+
+    -- Degenerada
+    Descripcion NVARCHAR(200) NULL
+);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Tabla de hechos para actividades
+                                            de mantenimiento con diseño de "hecho acumulativo". Permite análisis de
+                                            frecuencia de mantenimientos, asignación de recursos y costos operativos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scripts de Carga -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingScripts">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseScripts" aria-expanded="false" aria-controls="collapseScripts">
+                            <i class="bi bi-database-add me-2"></i>Scripts de Carga y Configuración
+                        </button>
+                    </h2>
+                    <div id="collapseScripts" class="accordion-collapse collapse" aria-labelledby="headingScripts"
+                        data-bs-parent="#accordionDW">
+                        <div class="accordion-body">
+
+                            <!-- Carga de Dimensión Fecha -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseCargaFecha">
+                                            Carga de Dim.Fecha (2015-2030)
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseCargaFecha" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>-- Carga inicial de Dim.Fecha (rango 2015-01-01 a 2030-12-31)
+SET NOCOUNT ON;
+DECLARE @start DATE = '2015-01-01';
+DECLARE @end   DATE = '2030-12-31';
+;WITH d AS (
+    SELECT @start AS dt
+    UNION ALL
+    SELECT DATEADD(DAY, 1, dt)
+    FROM d
+    WHERE dt < @end
+)
+INSERT INTO Dim.Fecha
+    (IdFecha, Fecha, Anio, Mes, Dia, Trimestre, NombreMes, DiaSemana, 
+     NombreDiaSemana, SemanaAnio)
+SELECT
+    CONVERT(INT, FORMAT(dt, 'yyyyMMdd')) AS IdFecha,
+    dt AS Fecha,
+    YEAR(dt) AS Anio,
+    MONTH(dt) AS Mes,
+    DAY(dt) AS Dia,
+    DATEPART(QUARTER, dt) AS Trimestre,
+    DATENAME(MONTH, dt) AS NombreMes,
+    ((DATEPART(WEEKDAY, dt) + 5) % 7) + 1 AS DiaSemana, -- 1=Lunes
+    DATENAME(WEEKDAY, dt) AS NombreDiaSemana,
+    DATEPART(WEEK, dt) AS SemanaAnio
+FROM d
+OPTION (MAXRECURSION 0);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Script de carga inicial para la
+                                            dimensión de fechas usando recursividad CTE. Crea un calendario completo
+                                            desde 2015 hasta 2030 con todos los atributos temporales necesarios para
+                                            análisis.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Creación de Índices -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseIndices">
+                                            Índices de Optimización
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseIndices" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>-- Índices para Hechos.SensorWiFi
+CREATE INDEX IX_SensorWiFi_FechaMedicion ON Hechos.SensorWiFi(IdFechaMedicion);
+CREATE INDEX IX_SensorWiFi_WiFi ON Hechos.SensorWiFi(IdWiFi);
+CREATE INDEX IX_SensorWiFi_Usuario ON Hechos.SensorWiFi(IdUsuario);
+
+-- Índices para Hechos.SensorLuminaria
+CREATE INDEX IX_SensorLuminaria_FechaMedicion ON Hechos.SensorLuminaria(IdFechaMedicion);
+CREATE INDEX IX_SensorLuminaria_Alumbrado ON Hechos.SensorLuminaria(IdAlumbrado);
+
+-- Índices para Hechos.Mantenimiento
+CREATE INDEX IX_Mantenimiento_Fecha ON Hechos.Mantenimiento(IdFecha);
+CREATE INDEX IX_Mantenimiento_Compania ON Hechos.Mantenimiento(IdCompania);</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Estrategia de indexación
+                                            optimizada para las consultas analíticas más frecuentes. Los índices se
+                                            crean en las claves foráneas más utilizadas para mejorar el rendimiento de
+                                            joins y filtros.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Esquemas y Configuración -->
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link text-decoration-none" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseConfig">
+                                            Configuración Inicial
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseConfig" class="collapse">
+                                    <div class="card-body">
+                                        <pre><code>-- Crear/Resetear BD
+IF DB_ID('CiudadInteligenteDW') IS NOT NULL
+BEGIN
+    ALTER DATABASE CiudadInteligenteDW SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE CiudadInteligenteDW;
+END;
+
+CREATE DATABASE CiudadInteligenteDW;
+
+-- Crear esquemas
+CREATE SCHEMA Dim;   -- Dimensiones
+CREATE SCHEMA Hechos; -- Tablas de hechos</code></pre>
+                                        <p class="mt-3"><strong>Justificación:</strong> Script de inicialización que
+                                            garantiza un entorno limpio. Elimina la base de datos existente si existe y
+                                            recrea la estructura completa con esquemas separados para dimensiones y
+                                            hechos.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
 <!-- Interacción con el DW en Somee.com -->
 <section class="dw-interaction mb-5">
@@ -237,231 +1904,30 @@
     <small class="text-muted">Si ves resultados, la conexión con Somee.com está activa.</small>
 </section>
 
-
-<!-- Ejemplos de Código SQL -->
-<section class="code-examples mb-5">
-    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
-        EJEMPLOS DE CÓDIGO SQL
-    </h2>
-
-    <!-- Extracción de Datos -->
-    <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-dark text-white">
-            <h5 class="mb-0">
-                <i class="bi bi-database me-2"></i>
-                Extracción: Datos de Sensores WiFi
-            </h5>
-        </div>
-        <div class="card-body">
-            <p class="text-muted mb-3">
-                Consulta para extraer mediciones de sensores WiFi desde el MER:
-            </p>
-            <pre class="bg-light p-3 rounded"><code>SELECT 
-    sw.IdSensorWiFi,
-    sw.FechaMedicion,
-    sw.VelocidadSubida,
-    sw.VelocidadBajada,
-    w.Nombre AS NombreWiFi,
-    u.Nombre1 + ' ' + u.Apellido1 AS Usuario,
-    tc.Nombre AS TipoConexion
-FROM IoT.SensorWiFi sw
-    INNER JOIN IoT.WiFi w ON sw.IdWiFi = w.IdWiFi
-    LEFT JOIN Core.Usuario u ON sw.IdUsuario = u.IdUsuario
-    LEFT JOIN Catalogo.TipoConexion tc ON sw.IdTipoConexion = tc.IdTipoConexion
-WHERE sw.FechaMedicion >= @FechaInicio</code></pre>
-        </div>
-    </div>
-
-    <!-- Transformación de Fechas -->
-    <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-dark text-white">
-            <h5 class="mb-0">
-                <i class="bi bi-calendar me-2"></i>
-                Transformación: Dimensión Fecha
-            </h5>
-        </div>
-        <div class="card-body">
-            <p class="text-muted mb-3">
-                Creación de la dimensión fecha con formato YYYYMMDD:
-            </p>
-            <pre class="bg-light p-3 rounded"><code>-- Crear dimensión fecha (rango 2015-2030)
-INSERT INTO Dim.Fecha (IdFecha, Fecha, Anio, Mes, Dia, Trimestre, NombreMes, DiaSemana, NombreDiaSemana, SemanaAnio)
-SELECT
-    CONVERT(INT, FORMAT(dt, 'yyyyMMdd')) AS IdFecha,
-    dt AS Fecha,
-    YEAR(dt) AS Anio,
-    MONTH(dt) AS Mes,
-    DAY(dt) AS Dia,
-    DATEPART(QUARTER, dt) AS Trimestre,
-    DATENAME(MONTH, dt) AS NombreMes,
-    ((DATEPART(WEEKDAY, dt) + 5) % 7) + 1 AS DiaSemana,
-    DATENAME(WEEKDAY, dt) AS NombreDiaSemana,
-    DATEPART(WEEK, dt) AS SemanaAnio
-FROM (
-    SELECT DATEADD(DAY, number, '2015-01-01') AS dt
-    FROM master..spt_values 
-    WHERE type = 'P' AND number <= DATEDIFF(DAY, '2015-01-01', '2030-12-31')
-) dates</code></pre>
-        </div>
-    </div>
-
-    <!-- Carga de Hechos -->
-    <div class="card shadow-sm border-0 mb-4">
-        <div class="card-header bg-dark text-white">
-            <h5 class="mb-0">
-                <i class="bi bi-bar-chart me-2"></i>
-                Carga: Tabla de Hechos SensorWiFi
-            </h5>
-        </div>
-        <div class="card-body">
-            <p class="text-muted mb-3">
-                Inserción en la tabla de hechos con claves sustitutas:
-            </p>
-            <pre class="bg-light p-3 rounded"><code>INSERT INTO Hechos.SensorWiFi (
-    IdSensorWiFiSource,
-    IdFechaMedicion,
-    IdFechaConexion,
-    IdWiFi,
-    IdUsuario,
-    IdTipoConexion,
-    VelocidadSubida,
-    VelocidadBajada,
-    DireccionIP
-)
-SELECT 
-    sw.IdSensorWiFi,
-    df.IdFecha,
-    dc.IdFecha,
-    dw.IdWiFi,
-    du.IdUsuario,
-    dtc.IdTipoConexion,
-    sw.VelocidadSubida,
-    sw.VelocidadBajada,
-    sw.DireccionIP
-FROM CiudadInteligenteMER.IoT.SensorWiFi sw
-    INNER JOIN Dim.Fecha df ON CONVERT(DATE, sw.FechaMedicion) = df.Fecha
-    LEFT JOIN Dim.Fecha dc ON CONVERT(DATE, sw.FechaConexion) = dc.Fecha
-    INNER JOIN Dim.WiFi dw ON sw.IdWiFi = dw.IdWiFiSource
-    LEFT JOIN Dim.Usuario du ON sw.IdUsuario = du.IdUsuarioSource
-    LEFT JOIN Dim.TipoConexion dtc ON sw.IdTipoConexion = dtc.IdTipoConexionSource</code></pre>
-        </div>
-    </div>
-</section>
-
-<!-- Estructura del Data Warehouse -->
-<section class="dw-structure mb-5">
-    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
-        ESTRUCTURA DEL DATA WAREHOUSE
-    </h2>
-
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">
-                        <i class="bi bi-table me-2"></i>
-                        Dimensiones
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.Fecha</strong> - Calendario con clave YYYYMMDD
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.Ubicacion</strong> - Coordenadas geográficas
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.Compania</strong> - Información de empresas
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.Usuario</strong> - Datos de usuarios del sistema
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.WiFi</strong> - Puntos de acceso WiFi denormalizados
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-primary">Dim.Alumbrado</strong> - Luminarias públicas
-                        </li>
-                        <li>
-                            <strong class="text-primary">Dim.EstadoInfraestructura</strong> - Estados operativos
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">
-                        <i class="bi bi-bar-chart me-2"></i>
-                        Tablas de Hechos
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <strong class="text-success">Hechos.SensorWiFi</strong> - Mediciones de velocidad y
-                            conexiones
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-success">Hechos.SensorLuminaria</strong> - Consumo y estado de
-                            luminarias
-                        </li>
-                        <li class="mb-2">
-                            <strong class="text-success">Hechos.Mantenimiento</strong> - Actividades de mantenimiento
-                        </li>
-                    </ul>
-                    <div class="mt-4">
-                        <h6 class="text-info">Características del DW:</h6>
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-1">
-                                <i class="bi bi-check-circle text-success me-2"></i>
-                                Esquema estrella (Star Schema)
-                            </li>
-                            <li class="mb-1">
-                                <i class="bi bi-check-circle text-success me-2"></i>
-                                Claves sustitutas para independencia
-                            </li>
-                            <li class="mb-1">
-                                <i class="bi bi-check-circle text-success me-2"></i>
-                                Dimensiones conformadas
-                            </li>
-                            <li>
-                                <i class="bi bi-check-circle text-success me-2"></i>
-                                Optimizado para consultas analíticas
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Herramientas y Tecnologías -->
 <section class="tools-section mb-5">
     <h2 class="text-center mb-5 display-5 fw-bold text-primary">
         HERRAMIENTAS Y TECNOLOGÍAS
     </h2>
 
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
         <div class="col-6 col-md-3">
             <div class="card h-100 shadow-sm border-0 text-center">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
                     <!-- SVG Python: responsivo -->
                     <img src="{{ url_for('static', filename='img/python.svg') }}" alt="Python"
                         class="img-fluid svg-icon mb-3">
                     <h5>Python</h5>
-                    <small class="text-muted">Scripting ETL avanzado</small>
+                    <small class="text-muted">Generación de Datos Estaticos</small>
+                    <small class="text-muted">Desarrollo Web</small>
                 </div>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="card h-100 shadow-sm border-0 text-center">
-                <div class="card-body">
-                    <i class="fas fa-database display-6 text-success mb-3"></i>
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <img src="{{ url_for('static', filename='img/microsoft-sql-server.svg') }}" alt="SQL Server"
+                        class="img-fluid svg-icon mb-3">
                     <h5>SQL Server</h5>
                     <small class="text-muted">Base de Datos</small>
                 </div>
@@ -469,10 +1935,20 @@ FROM CiudadInteligenteMER.IoT.SensorWiFi sw
         </div>
         <div class="col-6 col-md-3">
             <div class="card h-100 shadow-sm border-0 text-center">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <img src="{{ url_for('static', filename='img/visual-studio.svg') }}" alt="SQL Server"
+                        class="img-fluid svg-icon mb-3">
+                    <h5>Visual Studio Community</h5>
+                    <small class="text-muted">ETL</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card h-100 shadow-sm border-0 text-center">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
                     <!-- SVG Somee: cambia con tema -->
-                    <img data-dark-src="{{ url_for('static', filename='img/somee-dark.svg') }}"
-                        data-light-src="{{ url_for('static', filename='img/somee-white.svg') }}"
+                    <img data-dark-src="{{ url_for('static', filename='img/somee-white.svg') }}"
+                        data-light-src="{{ url_for('static', filename='img/somee-dark.svg') }}"
                         src="{{ url_for('static', filename='img/somee-white.svg') }}" alt="Somee Hosting"
                         class="img-fluid svg-icon mb-3">
                     <h5>Somee</h5>
@@ -490,9 +1966,10 @@ FROM CiudadInteligenteMER.IoT.SensorWiFi sw
             <h2 class="display-5 fw-bold mb-4 text-center text-warning">
                 Flujo de Datos ETL
             </h2>
-            <div class="row text-center">
+            <div class="row text-center justify-content-center align-items-center">
                 <div class="col-md-3 mb-4">
-                    <div class="p-3 border border-warning rounded">
+                    <div
+                        class="p-3 border border-warning rounded d-flex flex-column align-items-center justify-content-center h-100">
                         <i class="bi bi-database display-6 text-warning mb-3"></i>
                         <h5>MER</h5>
                         <p class="text-light small">Datos transaccionales normalizados</p>
@@ -502,7 +1979,8 @@ FROM CiudadInteligenteMER.IoT.SensorWiFi sw
                     <i class="bi bi-arrow-right display-6 text-info"></i>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <div class="p-3 border border-info rounded">
+                    <div
+                        class="p-3 border border-info rounded d-flex flex-column align-items-center justify-content-center h-100">
                         <i class="bi bi-gear display-6 text-info mb-3"></i>
                         <h5>Transformación</h5>
                         <p class="text-light small">Limpieza y denormalización</p>
@@ -512,7 +1990,8 @@ FROM CiudadInteligenteMER.IoT.SensorWiFi sw
                     <i class="bi bi-arrow-right display-6 text-success"></i>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <div class="p-3 border border-success rounded">
+                    <div
+                        class="p-3 border border-success rounded d-flex flex-column align-items-center justify-content-center h-100">
                         <i class="bi bi-bar-chart display-6 text-success mb-3"></i>
                         <h5>Data Warehouse</h5>
                         <p class="text-light small">Esquema estrella para análisis</p>
@@ -522,5 +2001,4 @@ FROM CiudadInteligenteMER.IoT.SensorWiFi sw
         </div>
     </div>
 </section>
-
 {% endblock %}

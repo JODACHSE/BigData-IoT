@@ -8,17 +8,17 @@ SET DATEFORMAT mdy
 GO
 
 /* 1) Crear/Resetear BD */
--- IF DB_ID('CiudadInteligenteDW') IS NOT NULL
--- BEGIN
---     ALTER DATABASE CiudadInteligenteDW SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
---     DROP DATABASE CiudadInteligenteDW;
--- END;
--- GO
+IF DB_ID('CiudadInteligenteDW') IS NOT NULL
+BEGIN
+    ALTER DATABASE CiudadInteligenteDW SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE CiudadInteligenteDW;
+END;
+GO
 
--- CREATE DATABASE CiudadInteligenteDW;
--- GO
--- USE CiudadInteligenteDW;
--- GO
+CREATE DATABASE CiudadInteligenteDW;
+GO
+USE CiudadInteligenteDW;
+GO
 
 /* 2) Esquemas */
 CREATE SCHEMA Dim;   -- Dimensiones
