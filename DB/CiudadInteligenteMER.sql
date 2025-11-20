@@ -393,9 +393,3 @@ BEGIN
         AND i.EsPrincipal = 1;
 END;
 GO
-
-/* ===========================
- VISTAS
-=========================== */
-USE CiudadInteligenteMER;
-GO

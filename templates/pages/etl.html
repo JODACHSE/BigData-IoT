@@ -23,10 +23,6 @@
 
 <!-- Proceso ETL Detallado -->
 <section class="etl-detailed mb-5">
-    <h2 class="text-center mb-5 display-5 fw-bold text-primary">
-        Proceso ETL Detallado
-    </h2>
-
     <ul class="nav nav-tabs" id="etlTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="mer-tab" data-bs-toggle="tab" data-bs-target="#panel-mer" type="button"
@@ -48,6 +44,11 @@
         <!-- Modelo Entidad Relación -->
         <section class="model-entity-relation mb-5">
             <h3 class="text-center mb-5 display-5 fw-bold text-warning">Modelo Entidad Relación</h3>
+
+            <figure class="figure d-block text-center m-0">
+                <img src="{{ url_for('static', filename='img/MER.svg') }}" alt="Modelo Entidad Relación"
+                    class="img-fluid w-100 mb-3" style="max-height:80vh;">
+            </figure>
 
             <div class="accordion" id="accordionMER">
                 <!-- Esquema Geo -->
@@ -1351,6 +1352,11 @@ GROUP BY m.IdMantenimiento, m.Fecha, dc.IdCompania, dwi.IdWiFi, da.IdAlumbrado, 
         <!-- Modelo Multidimensional (DataWarehouse) -->
         <section class="model-entity-relation mb-5">
             <h3 class="text-center mb-5 display-5 fw-bold text-success">Modelo Multidimensional (DataWarehouse)</h3>
+
+            <figure class="figure d-block text-center m-0">
+                <img src="{{ url_for('static', filename='img/DW.svg') }}" alt="Modelo Multidimensional"
+                    class="img-fluid w-100 mb-3" style="max-height:80vh;">
+            </figure>
 
             <div class="accordion" id="accordionDW">
                 <!-- Dimensiones -->
